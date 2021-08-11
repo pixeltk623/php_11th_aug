@@ -1,0 +1,7 @@
+1. git status
+2. git pull
+3. git add .
+3. git add "File Name"
+3. git commit -m "File Uploaded"
+4. git push || git push origin master
+5. git checkout "File Name"
