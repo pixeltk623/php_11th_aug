@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Tables</title>
+	<style type="text/css">
+		table tr th,td{
+			padding: 10px;
+		}
+		table tr th{
+			text-align: left;
+		}
+		.tabble_border_collapse{
+			border-collapse: collapse;
+			
+		}
+		.table_header_centre
+		{
+			text-align: center;
+		}
+		.table_all_text_center{
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+
+	<h1>table demo</h1>
+	<table border="1" class="tabble_border_collapse" width="500">
+		<tr>
+			<th>Fname</th>
+			<th>Lname</th>
+			<th>Age</th>
+		</tr>
+
+		<tr>
+			<td>anil</td>
+			<td>parmar</td>
+			<td>22</td>
+		</tr>
+		<tr>
+			<td>anil</td>
+			<td>parmar</td>
+			<td>22</td>
+		</tr>
+		<tr>
+			<td>anil</td>
+			<td>parmar</td>
+			<td>22</td>
+		</tr>
+	</table>
+
+	<center><h1>Practice of Tables</h1></center>
+	
+	<h2>table 1</h2>
+	<hr>
+	<table border="1"  width="500" >
+		<tr>
+			<td>Column 1</td>
+			<td>Column 2</td>
+			<td>Column 3</td>
+		</tr>
+
+		<tr>
+			<td rowspan="2">Row 1 cell 1</td>
+			<td>row 1 cell 2</td>
+			<td>row 1 cell 3</td>
+
+			<tr>
+				<td>row 2 cell 2</td>
+				<td>row 2 cell 3</td>
+			</tr>
+		</tr>
+
+		<tr >
+			<td colspan="3">row 3 cell 1</td>
+		</tr>
+	</table>
+
+	<h2>table 2</h2>
+	<hr>
+	<table border="1" class="tabble_border_collapse" width="500">
+		<!--first row -->
+		<tr>
+			<td rowspan="2"></td>
+			<td colspan="2" style="text-align: center;">Average</td>
+			<td rowspan="2">Red<br>eyes</td>
+			<tr>
+				<td>height</td>
+				<td>weight</td>
+			</tr>
+		</tr>
+
+		<!-- 2nd row -->
+		<tr>
+			<td>Males</td>
+			<td>1.9</td>
+			<td>0.003</td>
+			<td>40%</td>
+		</tr>
+		<!-- 3rd row -->
+		<tr>
+			<td>feales</td>
+			<td>1.7</td>
+			<td>0.002</td>
+			<td>43%</td>
+		</tr>
+	</table>
+
+	<h2>table 3</h2>
+	<hr>
+	<table border="2" style="border-color: green;" width="500" class="tabble_border_collapse">
+		<tr>
+			<th>1 header</th>
+			<th>1 header</th>
+			<th>1 header</th>
+		</tr>
+		<tr>
+			<td>1data</td>
+			<td>1data</td>
+			<td>1data</td>
+		</tr>
+
+		<tr>
+			<td>2data</td>
+			<td>2data</td>
+			<td>2data</td>
+		</tr>
+
+		<tr>
+			<td>3data</td>
+			<td>3data</td>
+			<td>3data</td>
+		</tr>
+		
+	</table>
+
+
+
+	<h2>table 4</h2>
+	<hr>
+	<table border="1" width="500">
+		<!-- hst row -->
+		<tr>
+			<th>level 1</th>
+			<th>level 2</th>
+			<th>level 3</th>
+			<th>info</th>
+			<th>Name</th>
+		</tr>
+		
+		<!-- 1 row -->
+		<tr>
+			<td rowspan="6">System</td>
+			<td rowspan="4">System Apps</td>
+			<td rowspan="3">SystemEnv</td>
+			<td>App test</td>
+			<td>foo</td>
+
+		</tr>
+		
+		<!-- 2 row -->
+		<tr>
+			<td>App memory</td>
+			<td>foo</td>
+		</tr>
+		
+		<!-- 3 row -->
+		<tr>
+			<td>App test</td>
+			<td>har</td>
+		</tr>
+		
+		<!-- 4 row -->
+		<tr>
+		<td>system env2</td>
+		<td>app test</td>	
+		<td>har</td>
+		</tr>
+		
+		<!-- 5 row -->
+		<tr>
+			<td rowspan="2">System memory</td>
+			<td rowspan="2">memory test</td>
+			<td>memory func</td>
+			<td>foo</td>
+		</tr>
+		
+		<!-- 6 row -->
+		<tr>
+			<td>App test</td>
+			<td>foo</td>
+		</tr>
+	</table>
+
+	<h2>table 5</h2>
+	<hr>
+	<table border="1" width="700" >
+		<tr>
+			<th class="table_header_centre">Country</th>
+			<th class="table_header_centre">State</th>
+			<th class="table_header_centre">City</th>
+			<th class="table_header_centre">Street</th>
+			<th class="table_header_centre"> male</th>
+			<th class="table_header_centre">female</th>
+			<th class="table_header_centre">other</th>
+		</tr>
+
+		<tr>
+			<td rowspan="8">1</td>
+			<td rowspan="4">kerala</td>
+			<td rowspan="2">cochin</td>
+			<td>new street</td>
+			<td>500</td>
+			<td>600</td>
+			<td>6</td>
+		</tr>
+
+		<tr>
+			<td>main street</td>
+			<td>300</td>
+			<td>288</td>
+			<td>2</td>
+		</tr>
+
+		<tr>
+			<td rowspan="2">trivandrum</td>
+			<td>guru street</td>
+			<td>500</td>
+			<td>600</td>
+			<td>10</td>
+		</tr>
+
+		<tr>
+			<td>tvk street</td>
+			<td>500</td>
+			<td>600</td>
+			<td>2</td>
+		</tr>
+
+		<tr>
+			<td rowspan="4">maharastra</td>
+			<td rowspan="2">mumbai</td>
+			<td>krisha street</td>
+			<td>700</td>
+			<td>850</td>
+			<td>1</td>
+		</tr>
+
+		<tr>
+			<td>main street</td>
+			<td>500</td>
+			<td>600</td>
+			<td>2</td>
+		</tr>
+
+		<tr>
+			<td rowspan="2"> surath</td>
+			<td>new street</td>
+			<td>500</td>
+			<td>600</td>
+			<td>4</td>
+		</tr>
+
+		<tr>
+			<td>billa street</td>
+			<td>500</td>
+			<td>600</td>
+			<td>2</td>
+		</tr>
+
+		<tr>
+			<td rowspan="2">2</td>
+			<td rowspan="2">alaska</td>
+			<td rowspan="2">aka central</td>
+			<td>new street</td>
+			<td>200</td>
+			<td>210</td>
+			<td>2</td>
+		</tr>
+
+		<tr>
+			<td>cross street</td>
+			<td>1000</td>
+			<td>1050</td>
+			<td>10</td>
+		</tr>
+
+	</table>
+
+	<h2>table 6</h2>
+	<hr>
+	<table border="2" width="450" class="table_all_text_center">
+		<tr>
+			<th class="table_header_centre" rowspan="3">Day</th>
+			<th class="table_header_centre" colspan="3">Seminar</th>
+		</tr>
+
+		<tr>
+			<th class="table_header_centre" colspan="2">Schedule</th>
+			<th class="table_header_centre" rowspan="2">Topic</th>
+		</tr>
+
+		<tr>
+			<th class="table_header_centre">begin</th>
+			<th class="table_header_centre">end</th>
+		</tr>
+
+		<tr>
+			<td rowspan="2">Monday</td>
+			<td rowspan="2" style="background-color: yellow;">8am</td>
+			<td rowspan="2" style="background-color: purple;">5pm</td>
+			<td>intro to xhtml</td>
+		</tr>
+
+		<tr>
+			<td>validity dtd and relax nf</td>
+		</tr>
+
+		<tr>
+			<td rowspan="3">Tuesday</td>
+			<td style="background-color: yellow;">8am</td>
+			<td style="background-color: yellow;">11am</td>
+			<td rowspan="2">xpath</td>
+		</tr>
+
+		<tr>
+			<td style="background-color: yellow;">11am</td>
+			<td style="background-color: green;">2pm</td>
+		</tr>
+
+		<tr>
+			<td style="background-color: green;">2pm</td>
+			<td style="background-color: purple;">5pm</td>
+			<td>xsl tranformation</td>
+		</tr>
+
+		<tr>
+			<td>wedesday</td>
+			<td style="background-color: yellow;">8am</td>
+			<td style="background-color: green;">12pm</td>
+			<td>xsl formating objects</td>
+		</tr>
+	</table>
+
+	<h2>table 7</h2>
+	<hr>
+	<table border="3" width="1000" class="table_all_text_center">
+		<tr>
+			<th class="table_header_centre">Day/Period</th>
+			<th class="table_header_centre">I<br>9:30-10:20</th>
+			<th class="table_header_centre">II<br>10:20-11:10</th>
+			<th class="table_header_centre">III<br>11:10-12:00</th>
+			<th class="table_header_centre">12:00-12:40</th>
+			<th class="table_header_centre">IV<br>12:40-1:30</th>
+			<th class="table_header_centre">V<br>1:30-2:20</th>
+			<th class="table_header_centre">VI<br>2:20-3:10</th>
+			<th class="table_header_centre">VII<br>3:10-4:00</th>
+			
+		</tr>
+
+		<tr>
+			<td>Monday</td>
+			<td>eng</td>
+			<td>mat</td>
+			<td>che</td>
+			<td rowspan="6"><b>L<br>U<br>N<br>C<br>H</td>
+			<td colspan="3">LAB</td>
+			<td>phy</td>
+		</tr>
+
+		<tr>
+			<td>Tuesday</td>
+			<td colspan="3">LAB</td>
+			<td>end</td>
+			<td>che</td>
+			<td>mat</td>
+			<td>Sport</td>
+		</tr>
+
+		<tr>
+			<td>Wednesday</td>
+			<td>che</td>
+			<td>mat</td>
+			<td>mat</td>
+			<td>mat</td>
+			<td colspan="3">LIB</td>
+		</tr>
+
+		<tr>
+			<td>Thursday</td>
+			<td>che</td>
+			<td>mat</td>
+			<td>mat</td>
+			<td colspan="3">LIB</td>
+			<td>mat</td>
+			
+			
+		</tr>
+
+		<tr>
+			<td>Friday</td>
+			<td colspan="3">LAB</td>
+			<td>che</td>
+			<td>mat</td>
+			<td>mat</td>
+			<td>mat</td>
+		</tr>
+
+		<tr>
+			<td>Saturday</td>
+			<td>che</td>
+			<td>mat</td>
+			<td>mat</td>
+			<td colspan="3">LIB</td>
+			<td>mat</td>
+		</tr>
+	</table>
+
+	<!-- <h2>table 8</h2>
+	<hr>
+	<table border="2" style="border-color: blue;" width="600">
+		<tr>
+			<th class="table_header_centre" style="padding-right: 80px; padding-left: 80px;" colspan="2">Purchase order:1234567891</th>
+			<th class="table_header_centre" colspan="2">tutorialbrain 10th oct2020</th>
+		</tr>
+
+		<tr>
+			<td style="text-align: left;"><b>Vendor:</b><br>abc xys<br>lkjhaca cask<br>acjgsa asgh<br>cadhcgh jsava,39516</td>
+		</tr>
+
+		<tr></tr>
+
+		<tr></tr>
+
+		<tr></tr>
+
+		<tr></tr>
+
+		<tr></tr>
+
+		<tr></tr>
+
+		<tr></tr>
+
+	</table> -->
+
+	<h2>Table 8</h2>
+	<hr>
+	<table border="3" style="border-color: blue;" width="500">
+		<tr>
+			<th colspan="3" class="table_header_centre">Purchase order:1234567891</th>
+			<th style="padding: all;">tutorialbrain 10th oct2020</th>
+		</tr>
+		<tr>
+			<td colspan="2" style="text-align: left;"><b>Vendor:</b><br>abc xys<br>lkjhaca cask<br>acjgsa asgh<br>cadhcgh jsava,39516</td>
+			<td colspan="2" style="text-align: left;"><b>Ship to:</b><br>abc xys<br>acjgsa asgh<br>cadhcgh jsava,39516</td>
+		</tr>
+
+		<tr>
+			<th class="table_header_centre">Qty</th>
+			<th class="table_header_centre">item code</th>
+			<th class="table_header_centre">Description</th>
+			<th class="table_header_centre">Unit price</th>
+		</tr>
+
+		<tr>
+			<td>100</td>
+			<td>qtdyu</td>
+			<td>pen</td>
+			<td>20</td>
+		</tr>
+
+		<tr>
+			<td>100</td>
+			<td>qtdyu</td>
+			<td>pen</td>
+			<td>20</td>
+		</tr>
+
+		<tr>
+			<td>100</td>
+			<td>qtdyu</td>
+			<td>pen</td>
+			<td>20</td>
+		</tr>
+
+		<tr>
+			<th colspan="3" class="table_header_centre">Subtotal</th>
+			<td>60</td>
+		</tr>
+
+		<tr>
+			<th colspan="2" class="table_header_centre">GST</th>
+			<td>5%</td>
+			<td>10</td>
+		</tr>
+
+		<tr>
+			<th colspan="3" class="table_header_centre">Grand total</th>
+			<td>$70</td>
+		</tr>
+
+	</table>
+</body>
+</html>
