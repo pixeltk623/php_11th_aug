@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style type="text/css">
+		* {
+			box-sizing: border-box;
+		}
+		.container {
+			background-color: #f2f2f2;
+			border-radius: 8px;
+			padding-top: 15px;
+		}
+
+		.col-20 {
+			width: 25%;
+			float: left;
+			margin-top: 20px;
+		}
+
+		/*.row {
+			margin: 10px;
+		}*/
+
+		.col-80 {
+			width: 75%;
+			float: left;
+		}
+
+		label {
+			margin: 10px;
+			padding: 10px;
+		}
+
+		.row::after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+
+		input[type=text], select {
+			width: 98%;
+			padding: 15px;
+			border-radius: 5px;
+			border: 1px solid lightgrey;
+			margin: 5px;
+		}
+
+		textarea {
+			width: 98%;
+			border-radius: 5px;
+			border: 1px solid lightgrey;
+			margin: 5px;
+			height: 200px;
+			padding: 10px;
+			resize: vertical;
+		}
+
+		button {
+			float: right;
+			margin: 10px;
+			background-color: #4CAF50;
+			color: white;
+			border: none;
+		/*	padding: 15px 25px 15px 25px;*/
+			padding: 15px 25px;
+			border-radius: 8px;
+			font-size: 15px;
+		}
+
+		button:hover {
+			background-color: green;
+		}
+
+		@media screen and (min-width: 320px) and (max-width: 480px){
+    		.col-20 {
+    			width: 100%;
+    		}
+
+    		.col-80 {
+    			width: 100%;
+    		}
+
+    		button {
+    			width: 100%;
+    		}
+		}
+	</style>
+</head>
+<body>
+	<h2>Responsive Form</h2>
+	<p>Resize the browser window to see the effect. When the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other.</p>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-20">
+				<label>First Name</label>
+			</div>
+			<div class="col-80">
+				<input type="text" name="" placeholder="Your name..">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-20">
+				<label>Last Name</label>
+			</div>
+			<div class="col-80">
+				<input type="text" name="" placeholder="Last name..">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-20">
+				<label>Country</label>
+			</div>
+			<div class="col-80">
+				<select>
+					<option value="">India</option>
+					<option value="">USA</option>
+					<option value="">UK</option>
+				</select>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-20">
+				<label>Subject</label>
+			</div>
+			<div class="col-80">
+				<textarea placeholder="Write something.."></textarea>
+			</div>
+		</div>
+		<div class="row">
+			<button>Submit</button>
+		</div>
+		
+	</div>
+</body>
+</html>
