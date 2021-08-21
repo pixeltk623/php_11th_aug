@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content= "width=device-width, initial-scale=1.0">
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+		.col-1 {
+			width: 30%;
+			float: left;
+			background-color: yellow;
+			height: 440px;
+			margin: 0px 5px 0px 4px;
+		}
+		.col-2 {
+			width: 48%;
+			float: left;
+			background-color: yellow;
+			height: 440px;
+			margin: 0px 5px 0px 0px;
+		}
+		.col-3 {
+			width: 20%;
+			float: left;
+			background-color: yellow;
+			height: 440px;
+			margin: 0px 5px 0px 0px;
+		}
+
+		.row::after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+		header {
+			background-color: yellow;
+			padding: 30px;
+		}
+		footer {
+			background-color: yellow;
+			padding: 20px;
+		}
+
+		@media screen and (min-width: 320px) and (max-width: 480px){
+   			.col-1, .col-2, .col-3 {
+   				width: 100%;
+   			}
+		}
+	</style>
+</head>
+<body>
+		<header>
+			<div>
+				Header
+			</div>
+		</header>
+		<br>
+	<section class="main">
+		<div class="container">
+			<div class="row">
+				<div class="col-1">
+					Nav
+				</div>
+
+				<div class="col-2">
+					Article
+				</div>
+
+				<div class="col-3">
+					Ads
+				</div>
+			</div>
+		</div>
+	</section>
+	<br>
+	<footer>
+		Footer
+	</footer>
+	
+</body>
+</html>
