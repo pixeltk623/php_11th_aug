@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>form 3</title>
+	<style type="text/css">
+		*{
+			box-sizing: border-box;
+		}
+		.container{
+			background-color: #9cbc2c;
+			margin-left: 240px;
+    		margin-right: 240px;
+    		border-radius: 5px;
+		}
+		.inner_container{
+			background-color: #b9cf6a;
+			margin-right: 100px;
+			margin-left: 100px;
+			margin-bottom: 5px;
+			padding: 10px;
+			border-style: solid;
+			border-width: 2px;
+    		border-color: white;
+    		border-radius: 5px;
+		}
+		.col-25{
+			width: 25%;
+			float: left;
+			margin-top: 5px;
+		}
+		.col-75{
+			width: 75%;
+		}
+		input[type=text]{
+			width: 55%;
+			height: 30px;
+    		border-style: none;
+    		border-radius: 3px;
+		}
+		textarea{
+			width: 55%;
+			height: 100px;
+    		border-style: none;
+    		border-radius: 3px;
+    		resize: vertical;
+		}
+		button{
+			    color: white;
+			    margin-left: 370px;
+			    margin-top: 30px;
+			    margin-bottom: 30px;
+			    width: 100px;
+			    height: 40px;
+			    border-style: none;
+			    border-radius: 25px;
+			    background-color: #384313
+		}
+		h2{
+			margin-left: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h2 style="padding-top: 25px">Step 1: Your details</h2>
+		<div class="inner_container">
+			
+			<div class="row">
+				<div class="col-25">
+					<label>Name</label>
+				</div>
+				<div class="col=75">
+					<input type="text" name="" placeholder="First and last name">
+				</div>
+			</div>
+		</div>
+
+		<div class="inner_container">
+			<div class="row">
+				<div class="col-25">
+					<label>Email</label>
+				</div>
+				<div class="col=75">
+					<input type="text" name="" placeholder="example@domain.com">
+				</div>
+			</div>
+		</div>
+
+		<div class="inner_container">
+			<div class="row">
+				<div class="col-25">
+					<label>Phone</label>
+				</div>
+				<div class="col=75">
+					<input type="text" name="" placeholder="Eg +78588978900">
+				</div>
+			</div>
+		</div>
+
+		<h2>Step 2: Delivery address</h2>
+		<div class="inner_container">
+			
+			<div class="row">
+				<div class="col-25">
+					<label>Address</label>
+				</div>
+				<div class="col=75">
+					<textarea></textarea>
+				</div>
+			</div>
+		</div>
+
+		<div class="inner_container">
+			<div class="row">
+				<div class="col-25">
+					<label>Post code</label>
+				</div>
+				<div class="col=75">
+					<input type="text" name="">
+				</div>
+			</div>
+		</div>
+
+		<div class="inner_container">
+			<div class="row">
+				<div class="col-25">
+					<label>Country</label>
+				</div>
+				<div class="col=75">
+					<input type="text" name="">
+				</div>
+			</div>
+		</div>
+
+		<h2>Step 3: card detail</h2>
+		<div class="inner_container">
+			
+			<div class="row">
+				<div style="margin-bottom: 15px;">
+					<label>Card type</label>
+				</div>
+				<div>
+					<input type="radio" name="cardtype"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Visa.svg/1200px-Visa.svg.png" alt="visha img" width="25" height="15"> VISA
+
+					<input type="radio" name="cardtype"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/American_Express_logo_%282018%29.svg/1200px-American_Express_logo_%282018%29.svg.png" alt="img" width="25" height="15"> AmEx
+
+					<input type="radio" name="cardtype"> <img src="https://cdn.vox-cdn.com/thumbor/UKSLdttYoIK2bv1gd231rqL4eiQ=/1400x788/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/13674554/Mastercard_logo.jpg" alt="img" width="25" height="15"> Mastercard
+				</div>
+			</div>
+		</div>
+
+		<div class="inner_container">
+			<div class="row">
+				<div class="col-25">
+					<label>Card number</label>
+				</div>
+				<div class="col=75">
+					<input type="text" name="">
+				</div>
+			</div>
+		</div>
+
+		<div class="inner_container">
+			<div class="row">
+				<div class="col-25">
+					<label>Security</label>
+				</div>
+				<div class="col=75">
+					<input type="text" name="">
+				</div>
+			</div>
+		</div>
+
+		<div class="inner_container">
+			<div class="row">
+				<div class="col-25">
+					<label>Name on card</label>
+				</div>
+				<div class="col=75">
+					<input type="text" name="">
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<button>BUY IT!</button>
+		</div>
+
+	</div>
+
+</body>
+</html>
