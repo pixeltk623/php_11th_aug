@@ -30,7 +30,11 @@
 		.menu .submenu{
 			display: none;
 		}
-		.menu .submenu ul li:hover{
+		/*.submenu ul li:hover{
+			display: block;
+		}*/
+
+		.hover:hover .submenu {
 			display: block;
 		}
 
@@ -43,15 +47,15 @@
 			<li><a href="#">Home</a></li>
 			<li><a href="#">Login</a></li>
 			<li><a href="#">Signup</a></li>
-			<li><a href="#">Menu</a>
-					<div class="submenu">
-					<ul>
+			<li class="hover"><a href="#">Menu</a>
+					
+					<ul class="submenu">
 						<li>algo</li>
 						<li>algo</li>
 						<li>algo</li>
 						<li>algo</li>
 					</ul>
-				</div>
+				
 			</li>
 		</ul>
 	</nav>
