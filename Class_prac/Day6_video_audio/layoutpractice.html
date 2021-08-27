@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Layout practice</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+		body{
+			background-color: lightgrey;
+		}
+		header{
+			background-color: white;
+    		margin: 20px;
+		}
+		.title{
+		    text-align: center;
+		    padding: 40px;
+		    font-size: 30px;
+		}
+		.subtitle{
+			text-align: center;
+    		padding: 10px;
+		}
+		/*.navbar {
+			background-color: black;
+		}
+		.navbar ul li{
+			float: left;
+  			display: block;
+		}*/
+		.topnav{
+			overflow: hidden;
+			background-color: black;
+			
+		}
+		.topnav a {
+			float: left;
+			/*display: block;*/
+			color: white;
+			/*text-align: center;*/
+			padding: 14px 16px;
+			text-decoration: none;
+		}
+		.topnav a:hover{
+			background-color: lightgrey;
+		}
+		.one_content{
+			background-color: white;
+    		margin: 20px;
+
+		}
+		.two_content{
+			background-color: white;
+    		margin: 20px;
+		}
+		.content_title{
+			padding: 30px;
+    		font-weight: bold;
+    		font-size: 25px;
+		}
+		.content_subtitle{
+			padding-left: 30px;
+			padding-bottom: 20px;
+		}
+		img{
+			padding-left: 30px;
+			padding-right: 30px;
+		}
+		.image_gallery{
+			padding-top: 10px;
+			padding-bottom: 20px;
+		}
+		.text{
+			padding-left: 30px;
+			padding-top: 15px;
+			padding-bottom: 15px;
+		}
+
+		/* Smartphones (portrait and landscape) ---------- */
+		@media screen and (min-width: 320px) and (max-width: 480px){
+    	
+		}
+
+	</style>
+</head>
+<body>
+	<!-- header section -->
+	<header>
+		<div class="title">
+			<h2>My Website</h2>
+		</div>
+		<div class="subtitle">
+			Resize the browser windows to see the effect
+		</div>
+
+		<!-- <nav> -->
+			<!-- <div class="navbar">
+				
+				<ul>
+					<li>Link</li>
+					<li>Link</li>
+					<li>Link</li>
+					<li class="navright">Link</li>
+				</ul>
+
+			</div> -->
+
+			<div class="topnav">
+  				<a href="#">Link</a>
+  				<a href="#">Link</a>
+  				<a href="#">Link</a>
+  				<a href="#" style="float:right">Link</a>
+			</div>
+		<!-- </nav> -->
+	</header>
+
+	<!-- content area -->
+	<section>
+		
+		<!-- 1st content -->
+		<div class="one_content">
+			<div class="content_title">TITLE HEADING</div>
+			<div class="content_subtitle">Title description, Dec 7, 2017</div>
+
+			<img src="https://images.ctfassets.net/hrltx12pl8hq/3MbF54EhWUhsXunc5Keueb/60774fbbff86e6bf6776f1e17a8016b4/04-nature_721703848.jpg?fit=fill&w=480&h=270" alt="image" title="image" width="100%" height="270px">
+
+			<div>
+				<div class="text">Some text...</div>
+
+				<div class="text">Sunt in acal vdjkanc vladnv vdlnkv vladn bvr;n vsdlh sguhk sdajnv vushlk</div>
+			</div>
+		</div>
+
+		<!-- 2nd content -->
+		<div class="two_content">
+			<div class="content_title">TITLE HEADING</div>
+			<div class="content_subtitle">Title description, Sep 2, 2017</div>
+
+			<img src="https://images.ctfassets.net/hrltx12pl8hq/3MbF54EhWUhsXunc5Keueb/60774fbbff86e6bf6776f1e17a8016b4/04-nature_721703848.jpg?fit=fill&w=480&h=270" alt="image" title="image" width="100%" height="270px" >
+
+			<div>
+				<div class="text">Some text...</div>
+
+				<div class="text">Sunt in acal vdjkanc vladnv vdlnkv vladn bvr;n vsdlh sguhk sdajnv vushlk</div>
+			</div>
+		</div>
+
+		<!-- About section -->
+		<div class="one_content">
+			<div class="content_title">About Me</div>
+
+			<img src="https://images.ctfassets.net/hrltx12pl8hq/3MbF54EhWUhsXunc5Keueb/60774fbbff86e6bf6776f1e17a8016b4/04-nature_721703848.jpg?fit=fill&w=480&h=270" alt="image" title="image" width="100%" height="270px">
+
+			<div>
+				<div class="text">Some text...</div>
+
+				<div class="text">Sunt in acal vdjkanc vladnv vdlnkv vladn bvr;n vsdlh sguhk sdajnv vushlk</div>
+			</div>
+		</div>
+
+		<!-- Popular Post section -->
+		<div class="one_content">
+			<div class="content_title">Popular Post</div>
+			<div class="image_gallery">
+				<img src="https://images.ctfassets.net/hrltx12pl8hq/3MbF54EhWUhsXunc5Keueb/60774fbbff86e6bf6776f1e17a8016b4/04-nature_721703848.jpg?fit=fill&w=480&h=270" alt="image" title="image" width="100%" height="270px">
+				<img src="https://images.ctfassets.net/hrltx12pl8hq/3MbF54EhWUhsXunc5Keueb/60774fbbff86e6bf6776f1e17a8016b4/04-nature_721703848.jpg?fit=fill&w=480&h=270" alt="image" title="image" width="100%" height="270px">
+				<img src="https://images.ctfassets.net/hrltx12pl8hq/3MbF54EhWUhsXunc5Keueb/60774fbbff86e6bf6776f1e17a8016b4/04-nature_721703848.jpg?fit=fill&w=480&h=270" alt="image" title="image" width="100%" height="270px">
+			</div>
+		</div>
+
+		<!-- Follow Me section -->
+		<div class="one_content">
+			<div class="content_title">Follow Me</div>
+			<div class="text">Some text</div>
+		</div>
+
+
+	</section>
+
+	<!-- Footer section -->
+	<footer>
+		<div class="one_content title" style="padding: 30px;"><center>Footer</center></div>
+	</footer>
+</body>
+</html>
