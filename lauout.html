@@ -1,0 +1,220 @@
+
+<!-- Home
+
+About
+
+Classes
+	1
+	2
+	3
+	4
+
+Contact -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Layout</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style type="text/css">
+
+		* {
+			box-sizing: border-box;
+		}
+		body {
+			background-color: #f1f1f1;
+			font-family: Arial;
+		}
+
+		#header {
+			background-color: white;
+			padding: 20px;
+			text-align: center;
+			margin: 10px 10px 0px 10px;
+		}
+
+		#header h1 {
+			font-size: 50px;
+		}
+
+		#navbar ul {
+			list-style-type: none;
+			background-color: #333;
+			overflow: hidden;
+			padding: 0;
+			margin: 0;
+			margin: 0px 10px 0px 10px;
+		}
+
+		#navbar ul li {
+			float: left;
+		}
+
+		#navbar ul li a {
+			text-decoration: none;
+			color: white;
+			display: inline-block;
+			padding: 20px;
+		}
+
+		.col-left {
+			width: 72%;
+			float: left;
+			margin: 10px;
+
+		}
+
+		.col-right {
+			width: 25%;
+			float: left;
+			margin: 10px;
+		}
+
+		.card {
+			background-color: white;
+			padding: 20px;
+		}
+		.image {
+			width: 100%;
+			height: 200px;
+			background-color: grey;
+			padding-left: 10px;
+			padding-top: 10px;
+		}
+
+		.image-r {
+			width: 100%;
+			height: 100px;
+			background-color: grey;
+			padding-left: 10px;
+			padding-top: 10px;
+		}
+
+		.card-right {
+			background-color: white;
+			padding: 20px;
+		}
+
+		.row::after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+
+		#footer {
+			background-color: #ddd;
+			text-align: center;
+			margin: 10px;
+			padding: 20px;
+		}
+
+		#navbar ul li a:hover {
+			background-color: grey;
+		}
+
+		#navbar ul li.left {
+			float: right;
+		}
+
+		@media screen and (min-width: 320px) and (max-width: 480px){
+			
+			#header {
+				margin: 0px;
+			}
+
+			#navbar ul {
+				margin: 0px;
+			}
+
+			#navbar ul li {
+				float: none;
+				text-align: center;
+			}
+
+			#navbar ul li.left {
+				float: none;
+			}
+
+			.col-left {
+				width: 100%;
+				margin: 0px;
+				margin-top: 15px;
+			} 
+
+			.col-right {
+				width: 100%;
+				margin: 0px;
+				margin-top: 15px;
+			}
+
+			#footer {
+				
+				margin: 0px;
+				margin-top: 15px;
+			} 
+		}
+	</style>
+</head>
+<body>
+
+	<div id="header">
+		<h1>My Website</h1>
+		<p>Resize the browser window to see the effect.</p>	
+	</div>
+	<div id="navbar">
+		<ul>
+			<li><a href="">Link</a></li>
+			<li><a href="">Link</a></li>
+			<li><a href="">Link</a></li>
+			<li class="left"><a href="">Link</a></li>
+		</ul>
+	</div>
+	<div class="main-content">
+		<div class="row">
+		 	<div class="col-left">
+		 		<div class="card">
+		 			<h2>TITLE HEADING</h2>
+		 			<h5>Title description, Dec 7, 2017</h5>
+		 			<div class="image">Image</div>
+		 			<p>Some text..</p>
+		 			<p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+		 		</div>
+		 		<br>
+		 		<div class="card">
+		 			<h2>TITLE HEADING</h2>
+		 			<h5>Title description, Dec 7, 2017</h5>
+		 			<div class="image">
+		 				<img src="" >
+		 			Image</div>
+		 			<p>Some text..</p>
+		 			<p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+		 		</div>
+		 	</div>
+
+		 	<div class="col-right">
+		 		<div class="card-right">
+		 			<h2>About Me</h2>
+		 			<div class="image-r">Image</div>
+		 			<p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+		 		</div>
+		 		<br>
+		 		<div class="card-right">
+		 			<h3>Popular Post</h3>
+		 			<div class="image-r">Image</div>
+		 			<div class="image-r">Image</div>
+		 			<div class="image-r">Image</div>
+		 		</div>
+		 		<br>
+		 		<div class="card-right">
+		 			<h3>Follow Me</h3>
+		 			<p>Some text..</p>
+		 		</div>
+		 	</div>
+		</div>
+	</div>
+
+	<div id="footer">
+		<h2>Footer</h2>
+	</div>
+</body>
+</html>
