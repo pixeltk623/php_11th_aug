@@ -3,7 +3,7 @@ $a = 0;
 
 // True because $a is set
 if (isset($a)) {
- // echo "Variable 'a' is set.<br>";
+ echo "Variable 'a' is set.<br>";
 }
 
 $b = null;
