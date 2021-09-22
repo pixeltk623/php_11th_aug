@@ -129,13 +129,14 @@
 
 	.one {
 
+
 	height: 50px;
     width: 30%;
      background-color: powderblue;
    
       margin: auto;
 	  padding-bottom: 10px;
-	  padding-left: 120px;
+	  padding-left: 120px; */
 
 }
 
@@ -143,7 +144,7 @@
 
 	
 	    transform: translateY(10%);
-
+        
 }
 /*
 
@@ -240,7 +241,7 @@
 
 		 <div class="two">
 		
-			<input type="submit" name="submit" style="width: 30%; height:30px">
+			<input type="submit" name="submit" style="width: 30%; height:30px ; background-color: powderblue">
           </div>
 	</form>
 
