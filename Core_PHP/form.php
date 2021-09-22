@@ -130,7 +130,7 @@
 				<?php
 			}
 
-		?>
+		?> 
 		
 		<br><br>
 		<label>Email</label>
