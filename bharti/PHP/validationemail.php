@@ -72,7 +72,7 @@
 			if (preg_match($regex, $email)) {
 			    $message1 = true;
 			} else { 
-			 $message= "invalid email. Please try again.";
+			 $message= "Invalid email. Please try again.";
 			}           
 
 		if ($gender=='') {
@@ -140,7 +140,7 @@
 
 </style>
 </head>
-<body >
+<body style="background-color: #DBF9FC;">
     <h1 id="one">  <u>Employee Registration form</u> </h1>
 
 	<form method="POST" style="border: 0; padding-left:650px">
