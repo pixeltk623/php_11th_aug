@@ -68,7 +68,9 @@
 		}
 
 			
-			$regex = '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/'; 
+			//$regex = '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/'; 
+		    $regex ='/^([a-zA-Z0-9_\-\.\#]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/';
+
 			if (preg_match($regex, $email)) {
 			    $message1 = true;
 			} else { 
@@ -125,8 +127,25 @@
 	<title> Employee Registration form</title>
 	<style type="text/css">
 
-	#one
-	{
+	.one {
+
+	height: 50px;
+    width: 30%;
+     background-color: powderblue;
+   
+      margin: auto;
+	  padding-bottom: 10px;
+	  padding-left: 120px;
+
+}
+
+	.two {
+
+	
+	    transform: translateY(10%);
+
+}
+/*
 
 		text-align: : "center";
 		margin: 25px 200px 50px 200px;
@@ -134,19 +153,20 @@
 		border: 0 solid black;
 		background-color: blue;
 
-	}
+	}*/
 
 
 
 </style>
 </head>
 <body style="background-color: #DBF9FC;">
-    <h1 id="one">  <u>Employee Registration form</u> </h1>
-
+	<div class="one">
+    <h1>  <u>Employee Registration form</u> </h1>
+     </div>
 	<form method="POST" style="border: 0; padding-left:650px">
 
 		<label>Name&nbsp; &nbsp; &nbsp;&nbsp;</label>
-		<input type="text" name="name">
+		<input type="text" name="name" style="margin-top: 30px">
 		<?php 
 
 			if (isset($error1)) {
@@ -217,9 +237,11 @@
 		?>
 
 		<br><br>
+
+		 <div class="two">
 		
-			<input type="submit" name="submit">
-          
+			<input type="submit" name="submit" style="width: 30%; height:30px">
+          </div>
 	</form>
 
 </body>
