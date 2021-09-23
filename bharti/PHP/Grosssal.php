@@ -253,7 +253,7 @@ table{
 			if(preg_match("/^([a-zA-Z' ]+)$/",$name)){
 			  
 			}else{
-			    echo 'Invalid name given.';
+			    echo 'Enter Alphabets only!';
 			}
 		}
  		 ?> 
@@ -341,6 +341,14 @@ table{
 	   
          <td ><input type="text" name="basic" size="40"> </td>	
          <td ><input type="submit"  name=" Calculate"  style="width: 30%; height:30px ; background-color: #90EE90">
+       
+         
+		      
+
+
+
+       
+
           <input type="reset" value="Reset" style="width: 30%; height:30px ; background-color: #90EE90">	</td>
     	
    <!--  <tr height="50px" >
@@ -386,6 +394,13 @@ table{
 	</form>
 
 </table>
+<?php  
+ if (isset($_POST['name'])) {
+			$name = $_POST['name'];
+		}
+  echo "Welcome: $name" ; 
+  ?>
+
 </body>
 
 
