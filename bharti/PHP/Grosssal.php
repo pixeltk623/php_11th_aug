@@ -339,6 +339,8 @@ table{
 	    <td> Location :  <input type="text" name="Ldetails"  size="43"> </td>		
          <td colspan="2"> Department  : <span style="color: red;">* <input type="text"  size="40">
 
+
+
           </td>
 
 
