@@ -315,7 +315,7 @@ table{
 		?>
 
 
-         <td colspan="2"> DOB  :  <input type="text" name="DOB" size="40"> </td>
+         <td colspan="2"> DOB  :  <input type="date" name="DOB" size="40"> </td>
          <?php 
 
 			if (isset($error2)) {
