@@ -273,7 +273,7 @@ table{
 				<span style="color: red;"><?php echo $error5; ?></span><br>
 				<?php
 			}
-
+            
 		?> 	
 		</td>	
          <td colspan="2"> A/c No.: <span style="color: red;">*   <input type="text" name="acdetails" size="43"> <br>
@@ -285,7 +285,16 @@ table{
 				<span style="color: red;"><?php echo $error4; ?></span><br>
 				<?php
 			}
+           	 if (isset($_POST['acdetails'])) {
+			$acdetails = $_POST['acdetails'];
+			if(preg_match("'[0-9][ ][0-9][ ].'",$acdetails)) { 
 
+
+			  
+			}else{
+			    echo 'Enter numbers only!';
+			}
+		}
 		?>
 		</td>	 
      </tr>
@@ -300,6 +309,16 @@ table{
 				<?php
 			}
 
+			 if (isset($_POST['PFno'])) {
+			$PFno = $_POST['PFno'];
+			if(preg_match("/^([a-zA-Z0-9' ]+)$/",$PFno)) { 
+
+
+			  
+			}else{
+			    echo 'Enter alphanumeric only!';
+			}
+          }
 		?>
         </td>	
 
@@ -318,7 +337,9 @@ table{
 		<tr height="50px" >
 	    <th> Loca details: </th>
 	    <td> Location :  <input type="text" name="Ldetails"  size="43"> </td>		
-         <td colspan="2"> Department  : <span style="color: red;">* <input type="text" name="Dept" size="40"> </td>
+         <td colspan="2"> Department  : <span style="color: red;">* <input type="text"  size="40">
+
+          </td>
 
 
      </tr>
@@ -394,12 +415,6 @@ table{
 	</form>
 
 </table>
-<?php  
- if (isset($_POST['name'])) {
-			$name = $_POST['name'];
-		}
-  echo "Welcome: $name" ; 
-  ?>
 
 </body>
 
