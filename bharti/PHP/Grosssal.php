@@ -4,21 +4,18 @@ if (isset($_POST['Calculate'])) {
 
 if (isset($_POST['name'])) {
 			$name = $_POST['name'];
-			
-		} 
-
-else {
-			$name= "";
-
-	}
+		
+    
+}
 					
 if ($name=='') {
 			$error1 = "*Please enter name of employee.";
+	
 		} else {
 			$error1True = true;
 		}
+  
 
-	
 if (isset($_POST['DOB'])) {
 
 
@@ -140,7 +137,7 @@ if (isset($_POST['LOP'])) {
             $PT=200;  
             $Deduct =$pf+$ESI+$IT+$PT;  
             $Net= $earning- $Deduct;         
-	        echo " $Net";    
+	           
 		}  
 
 
@@ -157,7 +154,7 @@ if (isset($_POST['LOP'])) {
              $PT=200;  
              $Deduct =$pf+$ESI+$IT+$PT;    
                $Net= $earning- $Deduct;         
-	        echo " $Net";      
+	           
 		}    
 
 		 else if (number_format($basic)>=10000 && $basic<20000) {   
@@ -173,7 +170,7 @@ if (isset($_POST['LOP'])) {
             $PT=200;  
             $Deduct =$pf+$ESI+$IT+$PT;                
                $Net= $earning- $Deduct;         
-	        echo " $Net";      
+	           
 	    }    
 		else {
 
@@ -189,7 +186,7 @@ if (isset($_POST['LOP'])) {
 		    $PT=200;  
 		    $Deduct =$pf+$ESI+$IT+$PT;          
 		     $Net= $earning- $Deduct;         
-	        echo " $Net";     
+	      
 
 		 }
 
@@ -207,28 +204,6 @@ if (isset($_POST['LOP'])) {
 	}
 ?>  
 		 
-
-
-		
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -253,17 +228,17 @@ table{
 </style>
 </head>
 
-<body>
+<body style="background-color: #DBF9FC;">
    	<form method="POST" style="border: 0; padding-left:150px" >
 
 	<table border="1">
-		<tr height=80px; style=" background-color: green; text-align:center">
+		<tr height=80px; style=" background-color: #90EE90; text-align:center">
 		<td colspan='4'> <h4>SALARY SLIP  OF EMPLOYEE</h4>
 		</td>	
 	</tr>
 		<tr height="50px" >
-	    <th> Pesonal </th>
-	    <td> Full Name:  <input type="text" name="name" size="40"> </td>	
+	    <th> Personal </th>
+	    <td> Full Name: <span style="color: red; ">* <input type="text" name="name" size="40" style="margin-top: 20px"> <br>
 	    	<?php 
 
 			if (isset($error1)) {
@@ -272,13 +247,24 @@ table{
 				<?php
 			}
 
-		?> 
+	
+			 if (isset($_POST['name'])) {
+			$name = $_POST['name'];
+			if(preg_match("/^([a-zA-Z' ]+)$/",$name)){
+			  
+			}else{
+			    echo 'Invalid name given.';
+			}
+		}
+ 		 ?> 
+     </td>	
+	    	
 			
         
      </tr>
 	<tr height="50px" >
 	    <th> Bank Details </th>
-	    <td> Bank Name :  <input type="text" name="bdetails"  size="40"> </td>	
+	    <td> Bank Name : <span style="color: red;">* <input type="text" name="bdetails"  size="40"> <br>
 
 	         <?php 
 
@@ -289,7 +275,8 @@ table{
 			}
 
 		?> 	
-         <td colspan="2"> A/c No.:    <input type="text" name="acdetails" size="43"> </td>	
+		</td>	
+         <td colspan="2"> A/c No.: <span style="color: red;">*   <input type="text" name="acdetails" size="43"> <br>
 
               <?php 
 
@@ -299,11 +286,12 @@ table{
 				<?php
 			}
 
-		?> 
+		?>
+		</td>	 
      </tr>
 		<tr height="50px" >
 	    <th> PF details: </th>
-	    <td > PF No :  <input type="text" name="PFno"  size="42"> </td>	
+	    <td > PF No : <span style="color: red;">* <input type="text" name="PFno"  size="42"> <br>
 	         <?php 
 
 			if (isset($error3)) {
@@ -313,9 +301,9 @@ table{
 			}
 
 		?>
+        </td>	
 
-
-         <td colspan="2"> DOB  :  <input type="date" name="DOB" size="40"> </td>
+         <td colspan="2"> DOB : <span style="color: red;">*   <input type="date" name="DOB" size="40"> <br>
          <?php 
 
 			if (isset($error2)) {
@@ -325,11 +313,12 @@ table{
 			}
 
 		?> 
+		</td>
      </tr>
 		<tr height="50px" >
 	    <th> Loca details: </th>
 	    <td> Location :  <input type="text" name="Ldetails"  size="43"> </td>		
-         <td colspan="2"> Department  :  <input type="text" name="Dept" size="40"> </td>
+         <td colspan="2"> Department  : <span style="color: red;">* <input type="text" name="Dept" size="40"> </td>
 
 
      </tr>
@@ -339,7 +328,7 @@ table{
          <td colspan="2"> LOP:  <input type="text" name="LOP" size="40"> </td>	
      </tr>
 	
-		<tr height=20px width=40px; style=" background-color: green; text-align:center">
+		<tr height=20px width=40px; style=" background-color: #90EE90; text-align:center">
 		<td colspan="4"> Salary details</td>	
 		
 		<!--
@@ -351,8 +340,8 @@ table{
 	    <th> BASIC </th>
 	   
          <td ><input type="text" name="basic" size="40"> </td>	
-         <td ><input type="submit"  name=" Calculate"  style="width: 30%; height:30px ; background-color: Green">
-          <input type="reset" value="Reset" style="width: 30%; height:30px ; background-color: Green">	</td>
+         <td ><input type="submit"  name=" Calculate"  style="width: 30%; height:30px ; background-color: #90EE90">
+          <input type="reset" value="Reset" style="width: 30%; height:30px ; background-color: #90EE90">	</td>
     	
    <!--  <tr height="50px" >
 	    <th> HOUSE RENT AllOWANCE </th>
@@ -389,7 +378,7 @@ table{
 	<tr height="50px" >
 	    <th> Take home </th>
 	    <td> <input type="number" value="<?php echo $Net; ?>" readonly=""  />  </td>
-	  
+	    <td><label> <span style="color: red;">Field marked with * are mandatory:</label></td>
      </tr>
 	
 	
