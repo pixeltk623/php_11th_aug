@@ -12,7 +12,7 @@ if (isset($_POST['name'])) {
 		}
 	
 if (isset($_POST['DOB'])) {
-			$name = $_POST['DOB'];
+			$DOB = $_POST['DOB'];
 			
 		} else {
 			$DOB= "";
@@ -20,7 +20,7 @@ if (isset($_POST['DOB'])) {
 		}
 
 		if (isset($_POST['PFno'])) {
-			$name = $_POST['PFno'];
+			$PFno= $_POST['PFno'];
 			
 		} else {
 			$PFno= "";
@@ -28,21 +28,21 @@ if (isset($_POST['DOB'])) {
 		}
 		
         if (isset($_POST['acdetails'])) {
-			$name = $_POST['acdetails'];
+			$acdetails = $_POST['acdetails'];
 			
 		} else {
 			$acdetails = "";
 			
 		}
 	if (isset($_POST['bdetails'])) {
-			$name = $_POST['bdetails'];
+			$bdetails = $_POST['bdetails'];
 			
 		} else {
 			$bdetails = "";
 			
 		}
 if (isset($_POST['Ldetails'])) {
-			$name = $_POST['Ldetails'];
+			$Ldetails = $_POST['Ldetails'];
 			
 		} else {
 			$Ldetails = "";
@@ -50,7 +50,7 @@ if (isset($_POST['Ldetails'])) {
 		}
 		
 if (isset($_POST['Dept'])) {
-			$name = $_POST['Dept'];
+			$Dept= $_POST['Dept'];
 			
 		} else {
 			$Dept = "";
@@ -58,7 +58,7 @@ if (isset($_POST['Dept'])) {
 		}
 		
 if (isset($_POST['Wday'])) {
-			$name = $_POST['Wday'];
+			$Wday = $_POST['Wday'];
 			
 		} else {
 			$Wday = "";
@@ -66,57 +66,92 @@ if (isset($_POST['Wday'])) {
 		}
 		
 if (isset($_POST['LOP'])) {
-			$name = $_POST['LOP'];
+			$LOP= $_POST['LOP'];
 			
 		} else {
 			$LOP = "";
 			
 		}
-		
-if (isset($_POST['basic'])) {
-		
 
-		 if ($basic=5000){ 
-           $hra= ($basic*15)/100;
+		if (isset($_POST['basic'])) {
+			$basic= $_POST['basic'];
+			
+		} 
+
+	   if ($basic<5000){    
+
+		    $hra= ($basic*15)/100;
            $SA = ($basic*10)/100;
            $CN=($basic*7)/100;
            $SHA=($basic*11)/100;
            $CA=2500;
-           $pf= ($basic*5)/100;
-           $ESI=($basic*7)/100;
-           $IT=0;
-           $PT=200;
-           $Earning=$basic+$hra+$SA+$CN+$SHA+$CA;
-           $Deductions =$pf+$ESI+$IT+$PT;
-           $salary=$Earning-$Deductions;
-                   
-        echo "$salary";    
-    }    
-    else if ($basic=10000) {    
+           $earning=$basic+$hra+$SA+$CN+$SHA+$CA;
+		    $pf = ($basic*8)/100;
+            $ESI=($basic*7)/100; 
+            $IT=0;
+            $PT=200;  
+            $Deduct =$pf+$ESI+$IT+$PT;  
+            $Net= $earning- $Deduct;         
+	        echo " $Net";    
+		}  
 
-           $hra= ($basic*15)/100;
+
+	     else if ($basic>=5000 && $basic<10000) {    
+	     	   $hra= ($basic*15)/100;
            $SA = ($basic*10)/100;
            $CN=($basic*7)/100;
            $SHA=($basic*11)/100;
            $CA=2500;
-           $pf1= ($basic*8)/100;
-           $ESI1=($basic*7)/100;
-           $IT1= ($basic*2)/100;;
-           $PT1=200;
-           $Earning1=$basic+$hra+$SA+$CN+$SHA+$CA;
-           $Deductions1 =$pf1+$ESI1+$IT1+$PT1;
-           $salary1=$Earning1-$Deductions1;
-           
-        echo "$salary1";    
-    }    
+           $earning=$basic+$hra+$SA+$CN+$SHA+$CA;
+	         $pf = ($basic*8)/100;
+	         $ESI=($basic*7)/100;
+	         $IT= ($basic*2)/100;
+             $PT=200;  
+             $Deduct =$pf+$ESI+$IT+$PT;    
+               $Net= $earning- $Deduct;         
+	        echo " $Net";      
+		}    
 
-		}
+		 else if ($basic>=10000 && $basic<20000) {   
+		   $hra= ($basic*15)/100;
+           $SA = ($basic*10)/100;
+           $CN=($basic*7)/100;
+           $SHA=($basic*11)/100;
+           $CA=2500; 
+                      $earning=$basic+$hra+$SA+$CN+$SHA+$CA;
+
+	        $pf = ($basic*9)/100;
+	        $ESI=($basic*7)/100;
+            $IT= ($basic*5)/100;
+            $PT=200;  
+            $Deduct =$pf+$ESI+$IT+$PT;                
+               $Net= $earning- $Deduct;         
+	        echo " $Net";      
+	    }    
+		else { 
+             $hra= ($basic*15)/100;
+           $SA = ($basic*10)/100;
+           $CN=($basic*7)/100;
+           $SHA=($basic*11)/100;
+           $CA=2500;
+                      $earning=$basic+$hra+$SA+$CN+$SHA+$CA;
+
+		    $pf = ($basic*11)/100;
+		    $ESI=($basic*7)/100;		              
+		    $IT= ($basic*5)/100;
+		    $PT=200;  
+		    $Deduct =$pf+$ESI+$IT+$PT;          
+		     $Net= $earning- $Deduct;         
+	        echo " $Net";     
+
+		 }
+       
 	}
+?>  
+		 
 
 
 		
-
-?>
 
 
 
