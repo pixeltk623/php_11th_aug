@@ -2,15 +2,8 @@
 
 
 <?php  
-    $basic=4000;      
-    if ($basic<4000){  
-          
-           $pf= ($basic*5)/100;
-           $ESI=($basic*7)/100;
-           $IT=0;
-           $PT=200;
-          $Deductions =$pf+$ESI+$IT+$PT;
-
+    $basic=5000;      
+    if ($basic<33){    
         echo "fail";    
     }    
     else if ($basic>=34 && $basic<50) {    
@@ -30,15 +23,5 @@
     }  
    else {    
         echo "Invalid input";    
-    }  
-
-          $hra= ($basic*15)/100;
-           $SA = ($basic*10)/100;
-           $CN=($basic*7)/100;
-           $SHA=($basic*11)/100;
-           $CA=2500;
-           $Earning=$basic+$hra+$SA+$CN+$SHA+$CA;
-           $salary=$Earning-$Deductions;  
-
-           echo $salary;    
+    }    
 ?>  

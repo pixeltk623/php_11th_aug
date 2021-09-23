@@ -4,12 +4,14 @@ if (isset($_POST['Calculate'])) {
 
 if (isset($_POST['name'])) {
 			$name = $_POST['name'];
-			echo $name;
 			
-		} else {
-			$name= "";
+		} 
+
+else if (empty($_POST["name"])) {
+    $nameErr = "Name is required";
+  } 
 			
-		}
+
 	
 if (isset($_POST['DOB'])) {
 			$DOB = $_POST['DOB'];
@@ -78,9 +80,16 @@ if (isset($_POST['LOP'])) {
 			
 		} 
 
-	   if ($basic<5000){    
 
-		    $hra= ($basic*15)/100;
+
+
+    if (is_numeric($basic)){
+	
+	// Convert string to integer using number_format function
+
+	   if (number_format($basic)<5000){    
+
+		   $hra= ($basic*15)/100;
            $SA = ($basic*10)/100;
            $CN=($basic*7)/100;
            $SHA=($basic*11)/100;
@@ -96,13 +105,13 @@ if (isset($_POST['LOP'])) {
 		}  
 
 
-	     else if ($basic>=5000 && $basic<10000) {    
-	     	   $hra= ($basic*15)/100;
-           $SA = ($basic*10)/100;
-           $CN=($basic*7)/100;
-           $SHA=($basic*11)/100;
-           $CA=2500;
-           $earning=$basic+$hra+$SA+$CN+$SHA+$CA;
+	     else if (number_format($basic)>=5000 && $basic<10000) {    
+		      $hra= ($basic*15)/100;
+	          $SA = ($basic*10)/100;
+	         $CN=($basic*7)/100;
+	         $SHA=($basic*11)/100;
+	         $CA=2500;
+	         $earning=$basic+$hra+$SA+$CN+$SHA+$CA;
 	         $pf = ($basic*8)/100;
 	         $ESI=($basic*7)/100;
 	         $IT= ($basic*2)/100;
@@ -112,15 +121,14 @@ if (isset($_POST['LOP'])) {
 	        echo " $Net";      
 		}    
 
-		 else if ($basic>=10000 && $basic<20000) {   
+		 else if (number_format($basic)>=10000 && $basic<20000) {   
 		   $hra= ($basic*15)/100;
-           $SA = ($basic*10)/100;
+           $SA = ($basic*10)/100; 
            $CN=($basic*7)/100;
            $SHA=($basic*11)/100;
            $CA=2500; 
-                      $earning=$basic+$hra+$SA+$CN+$SHA+$CA;
-
-	        $pf = ($basic*9)/100;
+           $earning=$basic+$hra+$SA+$CN+$SHA+$CA;
+	        $pf = ($basic*9)/100; 
 	        $ESI=($basic*7)/100;
             $IT= ($basic*5)/100;
             $PT=200;  
@@ -128,14 +136,14 @@ if (isset($_POST['LOP'])) {
                $Net= $earning- $Deduct;         
 	        echo " $Net";      
 	    }    
-		else { 
-             $hra= ($basic*15)/100;
+		else {
+
+           $hra= ($basic*15)/100;
            $SA = ($basic*10)/100;
            $CN=($basic*7)/100;
            $SHA=($basic*11)/100;
            $CA=2500;
-                      $earning=$basic+$hra+$SA+$CN+$SHA+$CA;
-
+           $earning=$basic+$hra+$SA+$CN+$SHA+$CA;
 		    $pf = ($basic*11)/100;
 		    $ESI=($basic*7)/100;		              
 		    $IT= ($basic*5)/100;
@@ -145,7 +153,18 @@ if (isset($_POST['LOP'])) {
 	        echo " $Net";     
 
 		 }
-       
+
+		 echo "Welcome: $name,<br>
+		       your dob is: $DOB <br> 
+                your PF is: $PFno <br>
+                your account is: $acdetails <br>
+                your Bank is: $bdetails <br>
+                your dept is: $Dept <br>
+
+      	       Your net salary is :$Net"; 
+
+	}
+    
 	}
 ?>  
 		 
@@ -196,7 +215,7 @@ table{
 </head>
 
 <body>
-   	<form method="POST" style="border: 0; padding-left:150px">
+   	<form method="POST" style="border: 0; padding-left:150px" >
 
 	<table border="1">
 		<tr height=80px; style=" background-color: green; text-align:center">
@@ -241,7 +260,8 @@ table{
 	    <th> BASIC </th>
 	   
          <td ><input type="text" name="basic" size="40"> </td>	
-         <td colspan="2"><input type="submit"  name=" Calculate"  style="width: 30%; height:30px ; background-color: Green">
+         <td ><input type="submit"  name=" Calculate"  style="width: 30%; height:30px ; background-color: Green">
+          <input type="reset" value="Reset" style="width: 30%; height:30px ; background-color: Green">	</td>
     	
    <!--  <tr height="50px" >
 	    <th> HOUSE RENT AllOWANCE </th>
@@ -277,7 +297,7 @@ table{
      </tr>	
 	<tr height="50px" >
 	    <th> Take home </th>
-	    <td>  <input type="text" name="salary" size="40"> </td>
+	    <td> <input type="number" value="<?php echo $Net; ?>" readonly=""  />  </td>
 	  
      </tr>
 	
