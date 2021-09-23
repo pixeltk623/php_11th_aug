@@ -1,4 +1,147 @@
-<!Doctype html>
+<?php 
+
+if (isset($_POST['Calculate'])) {
+
+if (isset($_POST['name'])) {
+			$name = $_POST['name'];
+			echo $name;
+			
+		} else {
+			$name= "";
+			
+		}
+	
+if (isset($_POST['DOB'])) {
+			$name = $_POST['DOB'];
+			
+		} else {
+			$DOB= "";
+			
+		}
+
+		if (isset($_POST['PFno'])) {
+			$name = $_POST['PFno'];
+			
+		} else {
+			$PFno= "";
+			
+		}
+		
+        if (isset($_POST['acdetails'])) {
+			$name = $_POST['acdetails'];
+			
+		} else {
+			$acdetails = "";
+			
+		}
+	if (isset($_POST['bdetails'])) {
+			$name = $_POST['bdetails'];
+			
+		} else {
+			$bdetails = "";
+			
+		}
+if (isset($_POST['Ldetails'])) {
+			$name = $_POST['Ldetails'];
+			
+		} else {
+			$Ldetails = "";
+			
+		}
+		
+if (isset($_POST['Dept'])) {
+			$name = $_POST['Dept'];
+			
+		} else {
+			$Dept = "";
+			
+		}
+		
+if (isset($_POST['Wday'])) {
+			$name = $_POST['Wday'];
+			
+		} else {
+			$Wday = "";
+			
+		}
+		
+if (isset($_POST['LOP'])) {
+			$name = $_POST['LOP'];
+			
+		} else {
+			$LOP = "";
+			
+		}
+		
+if (isset($_POST['basic'])) {
+		
+
+		 if ($basic=5000){ 
+           $hra= ($basic*15)/100;
+           $SA = ($basic*10)/100;
+           $CN=($basic*7)/100;
+           $SHA=($basic*11)/100;
+           $CA=2500;
+           $pf= ($basic*5)/100;
+           $ESI=($basic*7)/100;
+           $IT=0;
+           $PT=200;
+           $Earning=$basic+$hra+$SA+$CN+$SHA+$CA;
+           $Deductions =$pf+$ESI+$IT+$PT;
+           $salary=$Earning-$Deductions;
+                   
+        echo "$salary";    
+    }    
+    else if ($basic=10000) {    
+
+           $hra= ($basic*15)/100;
+           $SA = ($basic*10)/100;
+           $CN=($basic*7)/100;
+           $SHA=($basic*11)/100;
+           $CA=2500;
+           $pf1= ($basic*8)/100;
+           $ESI1=($basic*7)/100;
+           $IT1= ($basic*2)/100;;
+           $PT1=200;
+           $Earning1=$basic+$hra+$SA+$CN+$SHA+$CA;
+           $Deductions1 =$pf1+$ESI1+$IT1+$PT1;
+           $salary1=$Earning1-$Deductions1;
+           
+        echo "$salary1";    
+    }    
+
+		}
+	}
+
+
+		
+
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -11,13 +154,14 @@ table{
 	border: 1px solid black;
 	}
 	table td{padding-left:5px;
-    
+     
 	}
 	table th{background-color:#fbc403; color:#363636;}
 </style>
 </head>
 
 <body>
+   	<form method="POST" style="border: 0; padding-left:150px">
 
 	<table border="1">
 		<tr height=80px; style=" background-color: green; text-align:center">
@@ -26,89 +170,83 @@ table{
 	</tr>
 		<tr height="50px" >
 	    <th> Pesonal </th>
-	    <td> First Name:  <input type="text" name="FName" size="40"> </td>		
-         <td colspan="2"> Last Name:  <input type="text" name="LName"> </td>	
+	    <td> Full Name:  <input type="text" name="name" size="40"> </td>		
+        
      </tr>
 	<tr height="50px" >
 	    <th> Bank Details </th>
-	    <td> Bank Name :  <input type="text" name="BName"> </td>		
-         <td colspan="2"> A/c No.:  <input type="text" name="AName"> </td>	
+	    <td> Bank Name :  <input type="text" name="bdetails"  size="40"> </td>		
+         <td colspan="2"> A/c No.:    <input type="text" name="acdetails" size="43"> </td>	
      </tr>
 		<tr height="50px" >
 	    <th> PF details: </th>
-	    <td > PF No :  <input type="text" name="Pno"> </td>		
-         <td colspan="2"> DOB  :  <input type="text" name="DOB"> </td>	
+	    <td > PF No :  <input type="text" name="PFno"  size="42"> </td>		
+         <td colspan="2"> DOB  :  <input type="text" name="DOB" size="40"> </td>
      </tr>
 		<tr height="50px" >
-	    <th> Loc details: </th>
-	    <td> Location :  <input type="text" name="Ldetails"> </td>		
-         <td colspan="2"> Department  :  <input type="text" name="Dept"> </td>	
+	    <th> Loca details: </th>
+	    <td> Location :  <input type="text" name="Ldetails"  size="43"> </td>		
+         <td colspan="2"> Department  :  <input type="text" name="Dept" size="40"> </td>	
      </tr>
 	<tr height="50px" >
 	    <th> Working days: </th>
-	    <td> Working days :  <input type="text" name="Wday"> </td>		
-         <td colspan="2"> LOP:  <input type="text" name="LOP"> </td>	
+	    <td> Working days :  <input type="text" name="Wday"  size="35"> </td>		
+         <td colspan="2"> LOP:  <input type="text" name="LOP" size="40"> </td>	
      </tr>
 	
 		<tr height=20px width=40px; style=" background-color: green; text-align:center">
-		<td> EARNINGS</td>	
-		<td> AMOUNT</td>	
+		<td colspan="4"> Salary details</td>	
+		
+		<!--
 		<td> DEDUCTIONS</td>	
-		<td> AMOUNT</td>	
+		<td> AMOUNT</td>	-->
 	</tr>	
 
 	<tr height="50px" >
 	    <th> BASIC </th>
 	   
-         <td ><input type="text" name="BASIC"> </td>	
-          <td >PROVIDENT FUND </td>	
-          <td ><input type="text" name="pf"> </td>	
-     </tr>	
-     <tr height="50px" >
+         <td ><input type="text" name="basic" size="40"> </td>	
+         <td colspan="2"><input type="submit"  name=" Calculate"  style="width: 30%; height:30px ; background-color: Green">
+    	
+   <!--  <tr height="50px" >
 	    <th> HOUSE RENT AllOWANCE </th>
 	   
-         <td ><input type="text" name="hra"> </td>	
-          <td >PROFESSIONAL TAX </td>	
-          <td ><input type="text" name="pf"> </td>	
-     </tr>	
+         <td ><input type="text" name="hra" size="40"> </td>	
+      
 
       <tr height="50px" >
 	    <th> SPECIAL AllOWANCE </th>
 	   
-         <td ><input type="text" name="SA"> </td>	
-          <td >ESI </td>	
-          <td ><input type="text" name="ESI"> </td>	
-     </tr>	
+         <td ><input type="text" name="SA" size="40"> </td>	
+   
 
      <tr height="50px" >
 	    <th> CN ALLOWANCE</th>
 	   
-         <td ><input type="text" name="CN"> </td>	
-          <td >IT TAX </td>	
-          <td ><input type="text" name="IT"> </td>	
-     </tr>	
-	
+         <td ><input type="text" name="CN" size="40"> </td>	
+     
 	 <tr height="50px" >
 	    <th> SHIFT ALLOWANCE </th>
 	   
-         <td ><input type="text" name="SHA"> </td>	
+         <td ><input type="text" name="SHA" size="40"> </td>	
          
      </tr>	
 
       <tr height="50px" >
-	    <th> COVIA ALLOWANCE </th>
+	    <th> COVID ALLOWANCE </th>
 	   
-         <td ><input type="text" name="CA"> </td>	
+         <td ><input type="text" name="CA" size="40"> </td>	
+
+          </td>-->
          
      </tr>	
 	<tr height="50px" >
-	    <th> Earnings </th>
-	    <td>  <input type="text" name="ear" size="40"> </td>		
-         <td colspan="2">   <input type="text" name="LName"> </td>	
+	    <th> Take home </th>
+	    <td>  <input type="text" name="salary" size="40"> </td>
+	  
      </tr>
 	
 	
-	<form>
 
 	</form>
 
