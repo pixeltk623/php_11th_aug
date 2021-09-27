@@ -76,9 +76,17 @@
 			// $message= "Invalid email. Please try again.";
 			//} 
            
-           $str = $_POST['str'];
+                   
 
+		if (isset( $_POST['str'])) {
+			$str=$_POST['str'];
+             
+           }  
 
+           	if (isset($_POST['dot'])) {
+			$dot=$_POST['dot'];
+             
+           }  
 //echo strlen($str);
 			$str1=str_split($str,1);
   			if (is_numeric($str1[0])== false) {
