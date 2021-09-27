@@ -32,7 +32,7 @@
 		
 		$name = $_POST['name'];
 		
-		$email = $_POST['email'];
+	//	$str1 = $_POST['str'];
 		
 
 		if (isset($_POST['gender'])) {
@@ -66,16 +66,67 @@
 				$error1 = "Name Length Error";
 			}
 		}
-
 			
 			//$regex = '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/'; 
-		    $regex ='/^([a-zA-Z0-9_\-\.\#]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/';
+		    //$regex ='/^([a-zA-Z0-9_\-\.\#]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/';
 
-			if (preg_match($regex, $email)) {
-			    $message1 = true;
-			} else { 
-			 $message= "Invalid email. Please try again.";
-			}           
+			//if (preg_match($regex, $email)) {
+			  //  $message1 = true;
+			//} else { 
+			// $message= "Invalid email. Please try again.";
+			//} 
+           
+           $str = $_POST['str'];
+
+
+//echo strlen($str);
+			$str1=str_split($str,1);
+  			if (is_numeric($str1[0])== false) {
+         		 $message1 = true;
+  			  }
+
+   		 else {
+        	 $message= "Invalid email. Please try again.";
+        	}    
+        
+     // $at=-1; $dot=-1;
+
+   		 for($i=0; $i<strlen($str); $i++)
+
+    {
+		     
+		     if($str[$i]=='@') {
+		 
+		      $at=$i;
+		     // echo $at;
+
+		    }
+
+		   else if ($str[$i]=='.'){
+
+
+		      $dot=$i;
+		      //echo $dot;
+		   }
+
+		}
+		  
+		  if($at>$dot){
+
+		  echo"please check email format";
+
+		}
+
+		  else{
+		  $message2 = true;
+		//print_r($str1[0]);
+		}
+
+		
+
+
+
+
 
 		if ($gender=='') {
 			$error2 = "Gender is not selected";
@@ -114,11 +165,12 @@
 			}
 		}
 
-		if (isset($error1True) && isset($error2True) && isset($error3True) && isset($error4True) && isset($message1 )) {
+		if (isset($error1True) && isset($error2True) && isset($error3True) && isset($error4True) && isset($message1 ) && isset($message2)) {
 			echo "We can Move to database";
 		}
 
-	}
+}
+	
 ?>
 
 <!DOCTYPE html>
@@ -180,7 +232,7 @@
 		
 		<br><br>
 		<label>Email &nbsp;&nbsp;&nbsp;&nbsp;</label>
-		<input type="email" name="email">
+		<input type="email" name="str">
 
 		<?php
 
@@ -235,7 +287,7 @@
 				<?php
 			}
 
-		?>
+		?> 
 
 		<br><br>
 

@@ -213,6 +213,9 @@ if (isset($_POST['LOP'])) {
 
 <html>
 <head>
+	  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
 <style>
 table{
 	width: 80%;
@@ -285,16 +288,16 @@ table{
 				<span style="color: red;"><?php echo $error4; ?></span><br>
 				<?php
 			}
-           	 if (isset($_POST['acdetails'])) {
-			$acdetails = $_POST['acdetails'];
-			if(preg_match("'[0-9][ ][0-9][ ].'",$acdetails)) { 
+     	 if (isset($_POST['acdetails'])) {
+			$PFno = $_POST['acdetails'];
+			if(preg_match("/^(['0-9' ]+)$/",$acdetails)) { 
 
 
 			  
 			}else{
-			    echo 'Enter numbers only!';
+			    echo 'Enter number only!';
 			}
-		}
+          }
 		?>
 		</td>	 
      </tr>
@@ -408,7 +411,13 @@ table{
      </tr>	
 	<tr height="50px" >
 	    <th> Take home </th>
-	    <td> <input type="number" value="<?php echo $Net; ?>" readonly=""  />  </td>
+	    <td> <input type="number" value="<?php echo $Net; ?>" readonly=""  /> 
+
+        
+
+
+
+	     </td>
 	    <td><label> <span style="color: red;">Field marked with * are mandatory:</label></td>
      </tr>
 	
@@ -417,6 +426,8 @@ table{
 	</form>
 
 </table>
+
+ 
 
 </body>
 
