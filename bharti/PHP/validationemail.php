@@ -86,7 +86,7 @@
   			  }
 
    		 else {
-        	 $message= "Invalid email. Please try again.";
+        	 $message= "Invalid email.";
         	}    
         
      // $at=-1; $dot=-1;
@@ -113,7 +113,7 @@
 		  
 		  if($at>$dot){
 
-		  echo"please check email format";
+		  $message4="please check email format";
 
 		}
 
@@ -239,6 +239,17 @@
 		   if (isset($message)){
 		   	?>
 		   	<span style="color: red; text-align: center;"><?php echo $message; ?>
+		   		</span>
+		   		<?php
+
+		   }
+		   ?>
+
+		   	<?php
+
+		   if (isset($message4)){
+		   	?>
+		   	<span style="color: red; text-align: center;"><?php echo $message4; ?>
 		   		</span>
 		   		<?php
 
