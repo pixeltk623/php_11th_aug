@@ -240,7 +240,7 @@
 		
 		<br><br>
 		<label>Email &nbsp;&nbsp;&nbsp;&nbsp;</label>
-		<input type="email" name="str">
+		<input type="text" name="str">
 
 		<?php
 
