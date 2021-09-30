@@ -20,27 +20,6 @@
 	// include 'config.php';
 	// include 'config.php';
 
-	$query = "SELECT * FROM `customers`";
-
-	$result = mysqli_query($conn,$query);
-
-	if ($result->num_rows>0) {
-		
-		while ($response = mysqli_fetch_object($result)) {
-			
-			// echo "<pre>";
-			//print_r($response['name']);
-			// print_r($response->name);
-		}
-
-
-	} else {
-		echo "No Record Found";
-	}
-
-	// echo "<pre>";
-
-	// print_r($result);
 
 
 
