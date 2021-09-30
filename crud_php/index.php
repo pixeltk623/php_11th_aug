@@ -1,70 +1,58 @@
 <?php 
-	
+    
+  include_once 'constant.php';
+  include_once 'config.php';
 
-	// require_once 'cofig.php';
-	// require_once 'config.php';
-	// require_once 'config.php';
+  $query = "SELECT * FROM `employee`";
+  $result = mysqli_query($conn, $query);
 
-	// require 'config.php';
-	// require 'config.php';
-	// require 'config.php';
-	// require 'config.php';
-	
-	include_once 'config.php';
-	// include_once 'config.php';
-	// include_once 'config.php';
-	// include_once 'config.php';
+  $response = array();
+  while ($response[] = mysqli_fetch_object($result )) {}
 
-	// include 'conig.php';
-	// include 'config.php';
-	// include 'config.php';
-	// include 'config.php';
+    $finalData  = array_filter($response);
+    // echo "<pre>";
 
-	$query = "SELECT * FROM `users`";
-
-	$result = mysqli_query($conn,$query);
-
-	if ($result->num_rows>0) {
-		
-		while ($response = mysqli_fetch_object($result)) {
-			
-			// echo "<pre>";
-			// //print_r($response['name']);
-			// print_r($response->name);
-		}
-
-
-	} else {
-		echo "No Record Found";
-	}
-
-	// echo "<pre>";
-
-	// print_r($result);
-
-
-	$name = "Sharvan";
-	$email = "s@gmail.com";
-	$mobile = "8160410477";
-	$address = "Patna";
-
-	$query = "INSERT INTO employee (name, email, mobile, address) VALUES ('$name','$email','$mobile','$address')";
-	$result = mysqli_query($conn,$query);
-
-	if ($result) {
-		echo "Data Inserted";
-	} else {
-		echo "Something Error";
-	}
-
+    // print_r($finalData);
+ 
 ?>
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title></title>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
-<body>
-	<h1>Hello This is Home page</h1>
+<body>  
+<div class="container">
+  <h1 class="text-center text-primary">Crud In Core PHP</h1>
+  <a href="create.php" class="btn btn-primary mb-2">Add New Employee</a>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Sr.No</th>
+        <th>Name</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php 
+        foreach ($finalData as $key => $value) {
+        ?>
+        <tr>
+            <td><?php echo ++$key; ?></td>
+            <td><?php echo $value->name; ?></td>
+            <td><?php echo $value->email; ?></td>
+        </tr>
+        <?php
+        }
+      ?>
+    </tbody>
+  </table>
+</div>
+
 </body>
 </html>

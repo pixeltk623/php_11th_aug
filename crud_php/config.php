@@ -1,18 +1,8 @@
 <?php 
-		
-	// include 'file';
-	// include_once 'file';
-	// require 'file';
-	// require_once 'file';
-
-	$conn = mysqli_connect("localhost","root","","php_11_aug");
+	include_once 'constant.php';
+	$conn = mysqli_connect(SERVER_NAME,USER_NAME,PASSWORD,DB_NAME);
 
 	if (!$conn) {
 		echo "DB Error";
 	}
-
-	// echo "<pre>";
-
-	// print_r($conn);
-
 ?>
