@@ -116,7 +116,7 @@ if (isset($_POST['LOP'])) {
 			
 		} 
 
-
+     
 
 
     if (is_numeric($basic)){
