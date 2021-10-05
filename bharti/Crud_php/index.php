@@ -24,7 +24,9 @@
 
 
 
-	$query ="INSERT INTO `customers` (`CustomerID`, `CompanyName`, `ContactName`, `ContactTitle`, `Address`, `City`, `Region`, `PostalCode`, `Country`, `Phone`, `Fax`) VALUES ('200', 'Infosys', 'Bharti', 'Project manager', 'Panchkula', 'Panchkula', 'Haryana', '134112', 'India', '12345679', '1234656')";
+ $query ="INSERT INTO `customers` (`CustomerID`, `CompanyName`, `ContactName`, `ContactTitle`, `Address`, `City`, `Region`, `PostalCode`, `Country`, `Phone`, `Fax`) VALUES ('400', 'Infosys', 'Bharti', 'Project manager', 'Panchkula', 'Panchkula', 'Haryana', '134112', 'India', '12345679', '1234656')";
+
+
 
 	$result = mysqli_query($conn,$query);
 
