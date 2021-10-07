@@ -3,6 +3,27 @@
   include_once 'constant.php';
   include_once 'config.php';
 
+   if (isset($_POST['submit'])) {
+      
+      $did = $_POST['did'];
+
+      $queryD = "DELETE FROM `employee` WHERE eid = ".$did;
+      $resultD = mysqli_query($conn, $queryD);
+
+      if ($resultD) {
+         $message = array(
+            "message"=>"Deleted",
+            "class" => "alert-success"
+        );
+      } else {
+         $message = array(
+            "message"=>"Error",
+            "class" => "alert-danger"
+        );
+      }
+   }
+
+
   $query = "SELECT * FROM `employee`";
   $result = mysqli_query($conn, $query);
 
@@ -12,7 +33,13 @@
     $finalData  = array_filter($response);
     // echo "<pre>";
 
-    // print_r($finalData);
+    // print_r( sizeof($finalData) );
+
+    // print_r($result->num_rows);
+
+
+
+
  
 ?>
 <!DOCTYPE html>
@@ -30,25 +57,55 @@
 <div class="container">
   <h1 class="text-center text-primary">Crud In Core PHP</h1>
   <a href="create.php" class="btn btn-primary mb-2">Add New Employee</a>
+  <?php 
+    if(isset($message)) {
+        ?>
+            <div class="alert <?php echo $message['class']; ?>">
+                <?php echo $message['message']; ?>
+            </div>
+        <?php 
+    }
+  ?>
+
+
   <table class="table table-bordered">
     <thead>
       <tr>
         <th>Sr.No</th>
         <th>Name</th>
         <th>Email</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
-      <?php 
+     
+      <?php
+
+         if (sizeof($finalData)==0) {
+           ?>
+            <tr>
+               <td colspan="4" class="text-center text-danger">No Record Found</td>
+            </tr>
+           <?php
+         } else {
         foreach ($finalData as $key => $value) {
         ?>
         <tr>
             <td><?php echo ++$key; ?></td>
             <td><?php echo $value->name; ?></td>
             <td><?php echo $value->email; ?></td>
+            <td>
+               <a href="show.php?eid=<?php echo $value->eid; ?>" class="btn btn-secondary">Show</a>
+               <a href="edit.php?eid=<?php echo $value->eid; ?>" class="btn btn-success">Edit</a>
+              <!--  <a href="delete.php?eid=<?php echo $value->eid; ?>" class="btn btn-danger">Delete</a>  -->
+               <form method="post" class="d-inline">
+                  <input type="hidden" name="did" value="<?php echo $value->eid; ?>">
+                  <input type="submit" name="submit" value="Delete" class="btn btn-danger">
+               </form> 
+            </td>
         </tr>
         <?php
-        }
+        }  }
       ?>
     </tbody>
   </table>
