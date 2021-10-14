@@ -5,6 +5,8 @@ include_once 'constant.php';
 ?>
 
 
+
+
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
@@ -19,11 +21,7 @@ include_once 'constant.php';
   </head>
   <body>
 
-    <?php
-
-    echo MAIN_WEBSITE;
-
-    ?>
+  
     
     <div class="container">
     <h1 class="text-center text-primary"> CRUD IN PHP </h1>

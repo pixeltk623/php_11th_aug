@@ -1,154 +1,162 @@
-<?php 
+<?php
 
-    // $dataString = "Cricket,Football,Tenis";
+include_once 'constant.php';
+ 
+ if(isset($_POST['submit']))
+{
+echo $name=$_POST['name'];
+echo  $email=$_POST['Email'];
+echo  $city=$_POST['city'];
+  
+ if(isset($_POST['gender'])){
+   $gender=$_POST['gender'];
 
-    // echo "<pre>";
-    // print_r(explode(",", $dataString));
+ } else {
 
-    // die;
+     $gender="";
+}
 
-    // Array to string conversion
+ if(isset($_POST['CB']))
+{
+    $CB=$_POST['CB'];
 
-    // string to array 
+ } else {
 
+     $CB=array();
+   }
 
-  include_once 'constant.php';
-  include_once 'config.php';
+   echo "<pre>";
+   print_r($CB);
 
-  if (isset($_POST['submit'])) {
+   if(isset($_POST['DOB']))
+{
+    $DOB=$_POST['DOB'];
+
+ } else {
+
+     $DOB="";
+   }
+
+    if($name==''){
+        $classname="is-invalid";
+
+      }
+    else{
+
+       $classname="is-valid";}
+       
      
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $city = $_POST['city'];
+  if($email==''){
+        $classname1="is-invalid";}
+          else{
 
-    if (isset($_POST['gender'])) {
-       $gender = $_POST['gender'];
-    } else {
-       $gender = "";
-    }
-
-    if (isset($_POST['hobby'])) {
-       $hobby = $_POST['hobby'];
-    } else {
-       $hobby = array();
-    }
-
-    $hobby = implode(",", $hobby);
-
-    $dob = $_POST['dob'];
-
-    if ($name=='') {
-        $className = "is-invalid";
-    } else {
-        $className = "is-valid";
-    }
-
-    $query = "INSERT INTO `employee`(`name`, `gender`, `hobby`, `email`, `city`, `dob`) VALUES ('$name', '$gender', '$hobby', '$email', '$city', '$dob')";
-
-    $result = mysqli_query($conn, $query);
-   
-    if ($result) {
-       $message = array(
-            "message"=>"New User Added",
-            "class" => "alert-success"
-        );
-    } else {
-        $message = array("message" => "Something Error", "class" => "alert-danger") ;
-    }
+       $classname1="is-valid";}
+        
+     
   }
 
 ?>
-<!DOCTYPE html>
+
+
+
+
+<!DOCTYPE HTML>
 <html lang="en">
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</head>
-<body>  
-<div class="container">
-  <h1 class="text-center text-primary">Crud In Core PHP</h1>
-  <a href="index.php" class="btn btn-warning mb-2">Back To Home</a>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <?php 
-    if(isset($message)) {
-        ?>
-            <div class="alert <?php echo $message['class']; ?>">
-                <?php echo $message['message']; ?>
-            </div>
-        <?php 
-    }
-  ?>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
+    <title>CRUD</title>
+  </head>
+  <body>
+
+  
+    
+    <div class="container">
+    <h1 class="text-center text-primary"> CRUD IN PHP</h1>
+    <a href="index.php" class="btn btn-primary mb-2">Back to home</a>
   <form method="post">
     <div class="form-group">
-      <label for="email">Name:</label>  
-      <input type="text" class="form-control form-control-sm <?php echo (isset($className)) ? $className : $className ?>"  placeholder="Enter name" name="name">
+      <label for="uname">Name:</label><br>
+      <input type="text" class="form-control <?php echo(isset($classname)) ? $classname:''?>" id="name" placeholder="Enter Name" name="name" >
+   
     </div>
-    <div class="form-group">
-      <label for="pwd">Email:</label>
-      <input type="email" class="form-control form-control-sm"  placeholder="Enter email" name="email">
-    </div>
-    <div class="form-group">
-        <label>City</label>
-        <select name="city" class="form-control form-control-sm">
-            <option value="">Select</option>
-            <option value="Vadodara">Vadodara</option>
-            <option value="Anand">Anand</option>
-            <option value="Surat">Surat</option>
-        </select>
-    </div>
-    <div class="form-group">
-      <label for="pwd">Gender: </label>
-      <br>
+    <div class="form-group" pt-10px>
+      <label for="Email">Email:</label><br>
+      <input type="text" class="form-control <?php echo(isset($classname1)) ? $classname1:''?>" id="Email" placeholder="Enter Email" name="Email">
+    </div><br>
+      <div class="form-group">
+      <label for="gender">Gender: </label><br>
+      
+      <div class="form-check-inline" style="margin-right: 5px;">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="gender" value="Male" style="margin-right: 5px;"  >Male
+          </label>
+        </div>
+        <div class="form-check-inline">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="gender" value="Female" style="margin-right: 5px;">Female
+          </label>
+        </div>
+        <div class="form-check-inline">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="gender" value="Others" style="margin-right: 5px;">Others
+          </label>
+        </div>
+    </div><br>
+
+     <div class="form-group" pt-10px>
+      <label for="hobby">Hobby: </label><br>
       <div class="form-check-inline">
-          <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="gender" value="Male">Male
-          </label>
-        </div>
-        <div class="form-check-inline">
-          <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="gender" value="Female">Female
-          </label>
-        </div>
-        <div class="form-check-inline disabled">
-          <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="gender" value="Others">Others
-          </label>
-        </div>
-    </div>
-    <div class="form-group">
-      <label for="pwd">Hobby: </label>
-      <br>
-      <div class="form-check-inline">
-          <label class="form-check-label">
-            <input type="checkbox" class="form-check-input" name="hobby[]" value="Cricket">Cricket
-          </label>
-        </div>
-        <div class="form-check-inline">
-          <label class="form-check-label">
-            <input type="checkbox" class="form-check-input" name="hobby[]" value="Football">Football
-          </label>
-        </div>
-        <div class="form-check-inline">
-          <label class="form-check-label">
-            <input type="checkbox" class="form-check-input" name="hobby[]" value="Tenis">Tenis
-          </label>
-        </div>
-    </div>
-    <div class="form-group">
-      <label for="pwd">DOB:</label>
-      <input type="date" class="form-control form-control-sm"  name="dob">
+  <label class="form-check-label">
+    <input type="checkbox" class="form-check-input" name="CB[]" value="Football" style="margin-right: 5px;">Football
+  </label>
+</div>
+<div class="form-check-inline">
+  <label class="form-check-label">
+    <input type="checkbox" class="form-check-input" name="CB[]" value="Cricket" style="margin-right: 5px;">Cricket
+  </label>
+</div>
+<div class="form-check-inline">
+  <label class="form-check-label">
+    <input type="checkbox"  class="form-check-input"  name="CB[]" value="Hockey" style="margin-right: 5px;">Hockey
+  </label>
+</div>
+</div><br>
+
+<div class="form-group" pt-10px>
+      <label for="city">City:</label><br>
+
+<select name="city" class="form-control <?php echo(isset($classname2)) ? $classname2:''?>">
+
+  <option value="Select">Select</option>
+   <option value="Delhi">Delhi</option>
+    <option value="Chandigarh">Chandigarh</option>
+     <option value="Panchkula">Panchkula</option>
+
+</select><br>
+
+
+     <div class="form-group" pt-10px>
+      <label for="DOB">DOB:</label><br>
+      <input type="date" class="form-control" id="DOB" placeholder="Enter DOB" name="DOB" >
+      <div class="invalid-feedback">Please fill out this field.</div>
     </div>
     
-    <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+   
+    <button type="submit" name="submit" class="btn-lg btn-primary mt-3" >Submit</button>
   </form>
-  
 </div>
+     
 
-</body>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+  </div>
+    </body>
 </html>
