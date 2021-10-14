@@ -35,13 +35,12 @@
 		$email = $_POST['email'];
 		
 
-		if (isset($_POST['gender'])) {
-			$gender = $_POST['gender'];
-			
-		} else {
-			$gender = "";
-			
-		}
+
+		  if (isset($_POST['gender'])) {
+       $gender = $_POST['gender'];
+    } else {
+       $gender = "";
+    }
 
 		if (isset($_POST['hobby'])) {
 			$hobby = $_POST['hobby'];
