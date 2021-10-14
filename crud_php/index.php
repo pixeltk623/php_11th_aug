@@ -74,6 +74,7 @@
         <th>Sr.No</th>
         <th>Name</th>
         <th>Email</th>
+        <th>Profile Pic</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -94,6 +95,9 @@
             <td><?php echo ++$key; ?></td>
             <td><?php echo $value->name; ?></td>
             <td><?php echo $value->email; ?></td>
+            <td>
+              <img src="uploads/<?php echo $value->profilePic; ?>" width="100">
+            </td>
             <td>
                <a href="show.php?eid=<?php echo $value->eid; ?>" class="btn btn-secondary">Show</a>
                <a href="edit.php?eid=<?php echo $value->eid; ?>" class="btn btn-success">Edit</a>
