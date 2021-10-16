@@ -1,0 +1,16 @@
+User Registration & Login and User Management System With admin panel
+
+Curfew e-Pass Management System Using PHP and MySQL
+
+
+	Student Result Management System
+		https://www.youtube.com/watch?v=jTKIeERY4hA
+	Employee Leaves Management System (ELMS) 
+		https://www.youtube.com/watch?v=Qh5eD5UyiJY
+		https://www.youtube.com/watch?v=CxIks1wL1WA
+	News Portal Project in PHP and MySql 
+		https://www.youtube.com/watch?v=1zd6XHB9Syg
+	Small CRM
+		https://www.youtube.com/watch?v=RvWbwQUCtnI&feature=youtu.be
+
+
