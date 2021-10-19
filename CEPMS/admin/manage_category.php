@@ -8,7 +8,6 @@
            
         header("Location: index.php");
     }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,25 +49,42 @@
                 ?>
                 <div class="container-fluid">
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Dashboard - Category</h1>
                        
                     </div>
                     <div class="row">
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Earnings (Monthly)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="col-md-12 mb-4">
+                        	<a href="add_category.php" class="btn btn-primary">Add New Category</a>
+                        	<br><br>
+                         	<table class="table table-bordered"> 
+                         		<tr>
+                         			<th>Sr.No</th>
+                         			<th>Category Name</th>
+                         			<th>Created At</th>
+                         			<th>Updated At</th>
+                         			<th>Action</th>
+                         		</tr>
+                         		<?php
+                         		$query = "SELECT * FROM `category`";
+
+                         		$res = mysqli_query($conn, $query);
+                         		$sr = 0;
+                         		while ($response = mysqli_fetch_object($res)) {
+                         			?>
+                         				<tr>
+                         					<td><?php echo ++$sr; ?></td>
+                         					<td><?php echo $response->name; ?></td>
+                         					<td><?php echo $response->created_at; ?></td>
+                         					<td><?php echo $response->updated_at; ?></td>
+                         					<td>
+                         						<a href="" class="btn btn-warning">Edit</a>
+                         						<a href="" class="btn btn-danger">Delete</a>
+                         					</td>
+                         				</tr>
+                         			<?php
+                         		}
+                         		?>
+                         	</table>
                         </div>
                       
                     </div>

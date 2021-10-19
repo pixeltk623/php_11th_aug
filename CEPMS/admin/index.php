@@ -1,3 +1,28 @@
+<?php 
+    session_start();
+    include_once '../database/config.php';
+
+    if (isset($_POST['submit'])) {
+        
+        $username = $_POST['username'];
+        $password = md5($_POST['password']);
+
+        $query = "SELECT * FROM `admin` WHERE (username = '$username' AND password = '$password') OR  (email = '$username' AND password = '$password')";
+
+        $result = mysqli_query($conn, $query);
+
+        $resultData = mysqli_fetch_object($result);
+
+        if ($result->num_rows>0) {
+            $_SESSION['admin_id'] = $resultData->id;
+            header("Location: dashboard.php");
+        } else {
+            $errorMessage = "Username or Password is Wrong";
+        }
+    }
+
+
+?>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -12,7 +37,7 @@
 #login .container #login-row #login-column #login-box {
   margin-top: 120px;
   max-width: 600px;
-  height: 320px;
+  height: 340px;
   border: 1px solid #9C9C9C;
   background-color: #EAEAEA;
 }
@@ -32,6 +57,13 @@
                     <div id="login-box" class="col-md-12">
                         <form id="login-form" class="form" action="" method="post">
                             <h3 class="text-center text-info">Login</h3>
+                            <?php
+                                if (isset($errorMessage)) {
+                                    ?>
+                                        <h6 style="color: red; text-align: center;"><?php echo $errorMessage; ?></h6>
+                                    <?php
+                                }
+                            ?>
                             <div class="form-group">
                                 <label for="username" class="text-info">Username:</label><br>
                                 <input type="text" name="username" id="username" class="form-control">
@@ -44,9 +76,7 @@
                                 <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
                                 <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
                             </div>
-                            <div id="register-link" class="text-right">
-                                <a href="#" class="text-info">Register here</a>
-                            </div>
+                            
                         </form>
                     </div>
                 </div>

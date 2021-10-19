@@ -9,6 +9,21 @@
         header("Location: index.php");
     }
 
+    if (isset($_POST['submit'])) {
+        
+        $cat_name = $_POST['cat_name'];
+
+        $queryCat = "INSERT INTO `Category`(`name`) VALUES ('$cat_name')";
+
+        $resultcat = mysqli_query($conn, $queryCat);
+
+        if ($resultcat) {
+            $message = "<h6 class= 'text-success'>Category Added</h6>";
+        } else {
+            $message = "<h6 class= 'text-danger'>Something Problem</h6>";
+        }
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,25 +65,26 @@
                 ?>
                 <div class="container-fluid">
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                       
+                        <h1 class="h3 mb-0 text-gray-800">Dashboard - Category</h1>
+
                     </div>
                     <div class="row">
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Earnings (Monthly)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
+                        <div class="col-md-12">
+                        <?php 
+                            if (isset($message)) {
+                                
+                                echo $message;
+                            }
+                        ?>
+                      <form method="post">
+                          <div class="form-group">
+                            <label for="exampleInputEmail1">Category Name</label>
+                            <input type="text" name="cat_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Category Name">
+                          </div>
+                          
+                          <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                        </form>
                         </div>
                       
                     </div>
