@@ -1,5 +1,6 @@
 <?php 
-    
+
+
     session_start();
 
     include_once '../database/config.php';
@@ -8,6 +9,32 @@
     if (!isset($_SESSION['admin_id'])) {
            
         header("Location: index.php");
+    }
+
+    if (isset($_POST['submit'])) {
+        $passNumber = "COVID19".time();
+        $full_name = $_POST['full_name'];
+        $contact_number = $_POST['contact_number'];
+        $email = $_POST['email'];
+        $identity_type = $_POST['identity_type'];
+        $Identity_cardNo = $_POST['Identity_cardNo'];
+        $Category = $_POST['Category'];
+        $from_date = $_POST['from_date'];
+        $to_date = $_POST['to_date'];
+
+        $query = "INSERT INTO `passes`(`pass_number`, `full_name`, `contact_number`, `email`, `identity_type`, `Identity_no`, `category_id`, `from_date`, `to_date`) VALUES ('$passNumber','$full_name','$contact_number','$email','$identity_type','$Identity_cardNo','$Category','$from_date','$to_date')";
+
+        $result = mysqli_query($conn, $query);
+
+        if($result) {
+            $message = '<div class="alert alert-success" role="alert">
+              Pass Created
+            </div>';
+        } else {
+            $message = '<div class="alert alert-danger" role="alert">
+ Error!
+</div>';
+        }
     }
 
 ?>
@@ -56,38 +83,39 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                      <form>
+                            <?php echo (isset($message) ? $message : ''); ?>
+                      <form method="post">
                           <div class="form-group">
                             <label for="exampleInputEmail1">Full Name</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Full Name">
+                            <input type="text" class="form-control" id="exampleInputEmail1" name="full_name" placeholder="Full Name">
                           </div>
                           <div class="form-group">
                             <label for="exampleInputEmail1">Contact Number</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Contact Number">
+                            <input type="text" class="form-control" id="exampleInputEmail1" name="contact_number"  placeholder="Contact Number">
                           </div>
                           <div class="form-group">
                             <label for="exampleInputEmail1">Email</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                            <input type="text" class="form-control" id="exampleInputEmail1" name="email" placeholder="Enter email">
                           </div>
                           <div class="form-group">
                             <label for="exampleInputPassword1">Identity Type</label>
-                            <select class="form-control">
+                            <select class="form-control" name="identity_type">
                                 <?php 
                                     foreach (getAllIdentityList() as $key => $value) {
                                             
-                                        echo "<option value='".$value['id_no']."'>".$value['id_name']."</option>";
+                                        echo "<option value='".$value->id."'>".$value->Identity_name."</option>";
                                     }
                                 ?>
                             </select>
                           </div>
                            <div class="form-group">
                             <label for="exampleInputEmail1">Identity CardNo</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Identity CardNo">
+                            <input type="text" class="form-control" id="exampleInputEmail1" name="Identity_cardNo" placeholder="Identity CardNo">
                           </div>
                           <div class="form-group">
                             <label for="exampleInputPassword1">Category</label>
 
-                            <select class="form-control">
+                            <select class="form-control" name="Category">
                                 <?php 
                                     foreach (getAllCategory() as $key => $value) {
                                             
@@ -98,14 +126,14 @@
                           </div>
                           <div class="form-group">
                             <label for="exampleInputPassword1">From Date</label>
-                            <input type="date" name="" class="form-control">
+                            <input type="date" name="from_date" class="form-control">
                           </div>
                           <div class="form-group">
                             <label for="exampleInputPassword1">To Date</label>
-                           <input type="date" name="" class="form-control">
+                           <input type="date" name="to_date" class="form-control">
                           </div>
 
-                          <button type="submit" class="btn btn-primary">Submit</button>
+                          <button type="submit" name="submit" class="btn btn-primary">Submit</button>
                         </form>
                         </div>
                       

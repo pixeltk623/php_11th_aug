@@ -18,15 +18,16 @@
 	}
 
 	function getAllIdentityList() {
+		global $conn;
 
-		$IdentityList = array(
-			array("id_no" => "13216546", "id_name" => "Aadhar Card"),
-			array("id_no" => "13216546", "id_name" => "Aadhar Card"),
-			array("id_no" => "13216546", "id_name" => "Aadhar Card"),
-			array("id_no" => "13216546", "id_name" => "Aadhar Card")
-		);
+		$query = "SELECT * FROM `identity_type`";
+		$res = mysqli_query($conn, $query);
+		while ($response[] = mysqli_fetch_object($res)) {}
 
-		return $IdentityList;
+		$finalArrayIdentity = array_filter($response);
+
+		return $finalArrayIdentity;
+		
 	}
 
 ?>
