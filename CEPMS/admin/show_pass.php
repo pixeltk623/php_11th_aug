@@ -91,7 +91,8 @@
                         <div class="col-md-12 mb-4">
                         	<a href="manage_passes.php" class="btn btn-primary">Back To Passes</a>
                         	<br><br>
-                            <table class="table table-bordered" id="myTable">
+                            <div id="myTable">
+                            <table class="table table-bordered">
                                 <tr>
                                     <th class="text-primary text-center" colspan="4"><?php echo  $objectRes->pass_number; ?></th>
                                 </tr>
@@ -126,7 +127,7 @@
                                     <td colspan="3"><?php echo  $objectRes->created_at; ?></td>
                                 </tr>
                             </table>
-
+                            </div>
                             <button class="btn btn-warning" onclick="printPasses()">Print</button>
                         </div>
                       
@@ -145,14 +146,16 @@
 
     <script type="text/javascript">
         function printPasses() {
-            // var divContents = document.getElementById("myTable").innerHTML;
-            // var a = window.open('', '', 'height=1500, width=1500');
+            var divContents = document.getElementById("myTable").innerHTML;
+
+            //console.log(divContents);
+            var a = window.open('', '', 'height=1500, width=1500');
             // a.document.write('<html>');
             // a.document.write('<body > <h1>Div contents are <br>');
-            // a.document.write(divContents);
-            // a.document.write('</body></html>');
-            // a.document.close();
-            window.print();
+            a.document.write('<style> table,tr,th,td {  border: 1px solid black; padding : 10px; border-collapse: collapse; width: 100%;  } </style>');
+            a.document.write(divContents);
+            a.document.close();
+            a.print();
         }
     </script>
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -164,12 +167,6 @@
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
 
 </body>
 

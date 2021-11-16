@@ -1,38 +1,123 @@
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="author" content="colorlib.com">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:400,800" rel="stylesheet" />
-    <link href="css/main.css" rel="stylesheet" />
-  </head>
-  <body>
-    <div class="s004">
-      <form>
-        <fieldset>
-          <legend>CURFEW E - PASS 2021 </legend>
-          <div class="inner-form">
-            <div class="input-field">
-              <input class="form-control" id="choices-text-preset-values" type="text" placeholder="Type to search..." />
-              <button class="btn-search" type="button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                  <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
-                </svg>
-              </button>
-            </div>
-          </div>
-       
-        </fieldset>
-      </form>
-    </div>
-    <script src="js/extention/choices.js"></script>
-    <script>
-      var textPresetVal = new Choices('#choices-text-preset-values',
-      {
-        removeItemButton: true,
-      });
+<?php 
+    include_once 'database/config.php';
+    if (isset($_POST['submit'])) {
+        
+        $passId = $_POST['passId'];
 
-    </script>
-  </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+        $query = "SELECT
+                p.`pass_id`,
+                p.`pass_number`,
+                p.`full_name`,
+                p.`contact_number`,
+                p.`email`,
+                it.Identity_name,
+                p.`Identity_no`,
+                c.name,
+                p.`from_date`,
+                p.`to_date`,
+                p.`created_at`
+            FROM
+                `passes` AS p
+            LEFT JOIN category AS c
+            ON
+                c.id = p.category_id
+            LEFT JOIN identity_type AS it
+            ON
+                it.id = p.identity_type WHERE p.`pass_number` = '$passId'";
+
+        $resP = mysqli_query($conn, $query);
+
+        $objectRes = mysqli_fetch_object($resP);
+
+        // echo "<pre>";
+
+        // print_r(count((array)$objectRes));
+
+        // die;
+
+    }
+
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style type="text/css">
+        table tr th,td {
+            padding: 10px;
+        }
+
+        table {
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <form method="post">
+        <table border="1" style="border-collapse: collapse;" width="500px;">
+            <tr>
+                <th>Search</th>
+                <td>
+                    <input type="text" name="passId" placeholder="Pass Id">
+                </td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <input type="submit" name="submit">
+                </th>
+            </tr>
+        </table>
+    </form>
+
+    <br><br>
+
+    <?php 
+
+        if (isset($objectRes)) {
+
+           
+
+    ?>
+
+    <table border="1" style="border-collapse: collapse;" width="800px;">
+        <tr>
+            <th class="text-primary text-center" colspan="4"><?php echo  $objectRes->pass_number; ?></th>
+        </tr>
+        
+        <tr>
+            <th>Full Name</th>
+            <td colspan="3"><?php echo  $objectRes->full_name; ?></td>
+        </tr>
+        <tr>
+            <th>Mobile No</th>
+            <td><?php echo  $objectRes->contact_number; ?></td>
+            <th>Email</th>
+            <td><?php echo  $objectRes->email; ?></td>
+        </tr>
+        <tr>
+            <th>Identity Type</th>
+            <td><?php echo  $objectRes->Identity_name; ?></td>
+            <th>Identity Card No</th>
+            <td><?php echo  $objectRes->Identity_no; ?></td>
+        </tr>
+        <tr>
+            <th>From Date</th>
+            <td><?php echo  $objectRes->from_date; ?></td>
+            <th>To Date</th>
+            <td><?php echo  $objectRes->to_date; ?></td>
+        </tr>
+        <tr>
+            <th>Pass Creation Date</th>
+            <td colspan="3"><?php echo  $objectRes->created_at; ?></td>
+        </tr>
+    </table>
+    <?php
+        } else {
+            echo "<h3 style='text-align: center; color:red;'>Not Found</h3>";
+        }
+        
+
+    ?>
+</body>
 </html>
