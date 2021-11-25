@@ -14,6 +14,9 @@
 
 	</script> -->
 
+	<input type="text" name="" id="m">
+	<button type="button" onclick="getMyVal()">Cal</button>
+
 	<div id="Result"></div>
 
 	<p id="para">This is Para</p>
@@ -37,6 +40,7 @@
 	<!-- <button type="button" onclick="">Test</button> -->
 
 	<!-- <button type="button" onclick="cofirmDelete()">Delete</button> -->
+
 	<script src="custom.js"></script>
 </body>
 </html>
