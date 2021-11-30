@@ -99,3 +99,18 @@
 	</script>
 </body>
 </html>
+
+<!-- PHP - Ajax (Js, Jquery, BS) => Crud
+	2
+
+OOPs
+	2
+
+Application
+	MVC
+		CRUD + AJAX = > 3
+
+PHP 
+
+Laravel 
+ -->
