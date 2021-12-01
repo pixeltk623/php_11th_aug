@@ -7,7 +7,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form method="post">
+        <form method="post" id="myForm">
             <div class="form-group">
                 <label>Name</label>
                 <input type="text" name="name" id="name" class="form-control">

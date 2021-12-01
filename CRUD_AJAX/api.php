@@ -24,4 +24,50 @@
 		}
 
 	}
+
+	if (isset($_POST['action']) && $_POST['action']=='INSERT_DATA') { 
+
+		$query = "INSERT INTO `crud_ajax`(`name`, `email`, `gender`, `hobby`, `city`) VALUES ('".$_POST['data']['name']."','".$_POST['data']['email']."','".$_POST['data']['gender']."','". implode(",", $_POST['data']['hobby'])."','".$_POST['data']['city']."')";
+		$result = mysqli_query($conn, $query);
+
+		if ($result) {
+			echo json_encode(['status'=>true]);
+		} else {
+			echo json_encode(['status'=>false]);
+		}
+	}
+
+	if (isset($_POST['action']) && $_POST['action']=='DELETE_USER') { 
+
+		$query = "DELETE FROM `crud_ajax` WHERE id = ".$_POST['data'];
+		$result = mysqli_query($conn, $query);
+
+		if ($result) {
+			echo json_encode(['status'=>true]);
+		} else {
+			echo json_encode(['status'=>false]);
+		}
+	}
+
+	if (isset($_POST['action']) && $_POST['action']=='EDIT_USER') { 
+
+		$query = "SELECT * FROM `crud_ajax` WHERE id = 14";
+		$result = mysqli_query($conn, $query);
+
+		$responsep = mysqli_fetch_object($result);
+
+		echo json_encode(['data' => $responsep]);
+	}
+
+	if (isset($_POST['action']) && $_POST['action']=='UPDATE_USER') { 
+
+		$query = "UPDATE ";
+		$result = mysqli_query($conn, $query);
+
+		if ($result) {
+			echo json_encode(['status'=>true]);
+		} else {
+			echo json_encode(['status'=>false]);
+		}
+	}
 ?>

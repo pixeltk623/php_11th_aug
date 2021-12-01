@@ -73,7 +73,7 @@
                                     html += "<td>"+finalData.data[i].gender+"</td>";
                                     html += "<td>"+finalData.data[i].hobby+"</td>";
                                     html += "<td>"+finalData.data[i].city+"</td>";
-                                    html += "<td><button type='button' class='btn btn-info'>Show</button> <button type='button' class='btn btn-secondary'>Edit</button> <button  type='button' class='btn btn-danger'>Delete</button></td>";
+                                    html += "<td><button type='button' class='btn btn-info'>Show</button> <button type='button' class='btn btn-secondary'>Edit</button> <button  type='button' class='btn btn-danger delete' value='"+finalData.data[i].id+"'>Delete</button></td>";
                                 html += "</tr>";
                             }
 
@@ -100,14 +100,65 @@
                 let nameOfUser = $("#name").val();
                 let email = $("#email").val();
                 let city = $("#city").val();
-                let gender = $('input[name="gender"]' );
-                
-                
-                console.log(gender) 
+                let gender = $('input[name="gender"]');
+                let hobby = $('input[name="hobby"]');
+                let genderValue = "";
+                let hobbyValue = [];
 
-                console.log(nameOfUser)
-                console.log(email)
-                console.log(city)
+                for(var i = 0; i<gender.length; i++) {
+
+                    if(gender[i].checked) {
+                        genderValue += gender[i].value;
+                    }
+                }
+
+                for(var i = 0; i<hobby.length; i++) {
+
+                    if(hobby[i].checked) {
+                       hobbyValue.push(hobby[i].value);
+                    }
+                }
+
+                let userDetails = {name: nameOfUser, email: email, city: city, gender:genderValue, hobby: hobbyValue}
+
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost/php_11th_aug/CRUD_AJAX/api.php",
+                    dataType : 'text',
+                    data: {action: "INSERT_DATA", data : userDetails},
+
+                    success:function(data) {
+                        
+                        if(JSON.parse(data).status) {
+                            getAllData()
+
+                            $("#exampleModal").modal('hide');
+                            $('#myForm')[0].reset();
+                        }
+                    }
+                });
+            });
+
+            $(document).on("click",".delete", function() {
+                let did = $(this).val()
+
+                //console.log(did);
+
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost/php_11th_aug/CRUD_AJAX/api.php",
+                    dataType : 'text',
+                    data: {action: "DELETE_USER", data : did},
+
+                    success:function(data) {
+                        
+                        if(JSON.parse(data).status) {
+                            alert("Deleted");
+                            getAllData()
+                        }
+                    }
+                });
+
             });
         });
     </script>
