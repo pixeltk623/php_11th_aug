@@ -7,6 +7,26 @@
 
 	include_once "config.php";
 
+	farookp43@
+
+	082428
+
+	08246614011
+
+	$query = "SELECT * FROM `crud_ajax`";
+
+		$result = mysqli_query($conn, $query);
+
+		if($result->num_rows==0) {
+			echo json_encode(['status'=>404, 'data' => "No Record Found"]);
+		} else {
+			$response = array();
+			while($responsep[] = mysqli_fetch_object($result)) {}
+
+			$finalData = array_filter($responsep);
+			echo json_encode(['status'=>200, 'data' => $finalData]);
+		}
+
 	if (isset($_GET['action']) && $_GET['action']=='GET_ALL_DATA') {
 		
 		$query = "SELECT * FROM `crud_ajax`";

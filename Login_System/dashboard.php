@@ -2,11 +2,11 @@
 	
 	session_start();
 
-	echo "<pre>";
+/*	echo "<pre>";
 
 	print_r($_SESSION);
 
-	echo time();
+	echo time();*/
 
 	if (isset($_SESSION['uname'])) {
 		//echo "Dashboard";
