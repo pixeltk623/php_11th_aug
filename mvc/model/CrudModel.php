@@ -34,6 +34,51 @@
 			return $this->finalData;
 
 		}
+
+        public function insertData($data, $table) {
+
+            $dataAll = array(
+                'name' => $data['name'],
+                'email'=>$data['email'],
+                'gender' => $data['gender'],
+                'hobby' => implode(",",$data['hobby']),
+                'city' => $data['city']
+            );
+            $values = array_values($dataAll);
+            $values = "'".implode("','",$values)."'";
+            $colName =  "`". implode("`,`", array_keys($dataAll)) . "`";
+            $this->query = "INSERT INTO `crud_ajax`($colName) VALUES ($values)";
+
+            $this->result = mysqli_query($this->conn, $this->query);
+
+            if($this->result) {
+                return ['status' => true];
+            } else {
+                return ['status' => false];
+            }
+        }
+
+        public function deleteDataById($id, $table){
+            $this->query = "DELETE FROM $table WHERE id = ".$id;
+
+            $this->result = mysqli_query($this->conn, $this->query);
+
+            if($this->result) {
+                return ['status' => true];
+            } else {
+                return ['status' => false];
+            }
+
+        }
+
+        public function getDataById($id, $table) {
+
+            $this->query = "SELECT * FROM $table WHERE id = ".$id;
+
+            $this->result = mysqli_query($this->conn, $this->query);
+            $this->finalData =  mysqli_fetch_object($this->result);
+            return $this->finalData;
+        }
 	}
 
 ?>

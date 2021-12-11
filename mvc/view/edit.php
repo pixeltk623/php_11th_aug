@@ -15,21 +15,23 @@
     <form method="post" id="myForm">
         <div class="form-group">
             <label>Name</label>
-            <input type="text" name="name" id="name" class="form-control">
+            <input type="text" name="name" id="name" class="form-control" value="<?php echo $result->name; ?>">
         </div>
         <div class="form-group">
             <label>Email</label>
-            <input type="text" name="email" id="email" class="form-control">
+            <input type="text" name="email" id="email" class="form-control" value="<?php echo $result->email; ?>">
         </div>
         <div class="form-group mt-2">
             <label>Gender</label>
             <br>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio"  name="gender" value="Male">
+                <input class="form-check-input" type="radio"  name="gender" value="Male"
+                        <?php echo ($result->gender=='Male' ? 'checked': '' ); ?>>
                 <label class="form-check-label">Male</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="gender"  value="Female">
+                <input class="form-check-input" type="radio" name="gender"  value="Female"
+                    <?php echo ($result->gender=='Female' ? 'checked': '' ); ?>>
                 <label class="form-check-label">Female</label>
             </div>
         </div>
@@ -37,11 +39,18 @@
             <label>Hobby</label>
             <br>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox"  name="hobby[]" value="Cricket">
+                <input class="form-check-input" type="checkbox"  name="hobby[]" value="Cricket"
+                    <?php
+                        if (in_array("Cricket",explode(",", $result->hobby))) echo "checked";
+                    ?>>
                 <label class="form-check-label">Cricket</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" name="hobby[]"  value="Football">
+                <input class="form-check-input" type="checkbox" name="hobby[]"  value="Football"
+                    <?php
+                    if (in_array("Football",explode(",", $result->hobby))) echo "checked";
+                    ?>
+                >
                 <label class="form-check-label">Football</label>
             </div>
         </div>
@@ -49,10 +58,10 @@
             <label>City</label>
             <select name="city" id="city" class="form-control">
                 <option value="">Select</option>
-                <option value="Vadodara">Vadodara</option>
-                <option value="Surat">Surat</option>
-                <option value="Patna">Patna</option>
-                <option value="Nalanda">Nalanda</option>
+                <option value="Vadodara" <?php echo ($result->city=='Vadodara' ? 'selected' : ''); ?>>Vadodara</option>
+                <option value="Surat" <?php echo ($result->city=='Surat' ? 'selected' : ''); ?>>Surat</option>
+                <option value="Patna" <?php echo ($result->city=='Patna' ? 'selected' : ''); ?>>Patna</option>
+                <option value="Nalanda" <?php echo ($result->city=='Nalanda' ? 'selected' : ''); ?>>Nalanda</option>
             </select>
         </div>
         <div class="form-group mt-2">

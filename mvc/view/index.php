@@ -39,8 +39,8 @@
 		     			<td><?php echo $value->city; ?></td>
 		     			<td>
 		     				<button class="btn btn-primary">Show</button>
-		     				<button class="btn btn-secondary">Edit</button>
-		     				<button class="btn btn-danger">Delete</button>
+		     				<a class="btn btn-secondary" href="edit?id=<?php echo $value->id; ?>">Edit</a>
+		     				<a class="btn btn-danger" href="delete?id=<?php echo $value->id; ?>">Delete</a>
 		     			</td>
 		    		</tr>
 		  			<?php
