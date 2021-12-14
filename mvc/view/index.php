@@ -27,8 +27,18 @@
 		    </tr>
 		  </thead>
 		  <tbody>
-		  	<?php 
-		  		foreach ($allData as $key => $value) {
+		  	<?php
+		  		if($allData['status']==404) {
+		  			?>
+
+		  			<tr>
+		  				<td colspan="7" class="text-center text-danger"><?php echo $allData['data'] ?></td>
+		  			</tr>
+		  			<?php
+		  		}  else {
+
+
+		  		foreach ($allData['data'] as $key => $value) {
 		  			?>
 		  			<tr>
 		     			<td><?php echo ++$key; ?></td>
@@ -44,6 +54,7 @@
 		     			</td>
 		    		</tr>
 		  			<?php
+		  		} 
 		  		}
 		  	?>
 		   

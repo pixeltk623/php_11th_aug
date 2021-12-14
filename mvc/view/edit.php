@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="container">
-    <form method="post" id="myForm">
+    <form method="post" id="myForm" action="update">
         <div class="form-group">
             <label>Name</label>
             <input type="text" name="name" id="name" class="form-control" value="<?php echo $result->name; ?>">
@@ -65,6 +65,7 @@
             </select>
         </div>
         <div class="form-group mt-2">
+            <input type="hidden" name="uid" value="<?php echo $result->id; ?>">
             <input type="submit" name="submit" class="btn btn-primary addNewUser">
         </div>
 

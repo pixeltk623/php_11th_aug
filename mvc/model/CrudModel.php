@@ -31,6 +31,12 @@
 			while ($this->response[] = mysqli_fetch_object($this->result)) {
 			}
 			$this->finalData = array_filter($this->response);
+
+            if (count($this->finalData)>0) {
+                return $this->finalData = array('status' => 200, 'data' => $this->finalData);
+            } else {
+                return $this->finalData = array('status' => 404, 'data' => 'No Record Found');
+            }
 			return $this->finalData;
 
 		}
@@ -44,8 +50,10 @@
                 'hobby' => implode(",",$data['hobby']),
                 'city' => $data['city']
             );
+
             $values = array_values($dataAll);
             $values = "'".implode("','",$values)."'";
+
             $colName =  "`". implode("`,`", array_keys($dataAll)) . "`";
             $this->query = "INSERT INTO `crud_ajax`($colName) VALUES ($values)";
 
@@ -79,6 +87,28 @@
             $this->finalData =  mysqli_fetch_object($this->result);
             return $this->finalData;
         }
+
+        public function updateData($data, $table) {
+            $this->query = "UPDATE $table SET `name`='".$data['name']."',`email`='".$data['email']."',`gender`='".$data['gender']."',`hobby`='". implode(",", $data['hobby']) ."',`city`='".$data['city']."', `updated_at`='". date("Y-m-d H:i:s")."' WHERE id = ".$data['uid'];
+
+            $this->result = mysqli_query($this->conn, $this->query);
+            
+            if($this->result) {
+                return ['status' => true];
+            } else {
+                return ['status' => false];
+            }
+        }
+
+        public function formatArray($arrayData) {
+
+            echo "<pre>";
+            print_r($arrayData);
+            echo "</pre>";
+            die;
+        }
+
 	}
 
+    
 ?>

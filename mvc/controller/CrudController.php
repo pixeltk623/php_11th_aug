@@ -14,6 +14,9 @@
                         if (isset($_POST['submit'])) {
 
                             $data = $_POST;
+
+                            //$this->formatArray($data);
+
                             $result = $this->insertData($data,'crud_ajax');
                             if($result['status']) {
                                header("Location: http://localhost/Lecture/mvc/");
@@ -36,6 +39,24 @@
 
                             include_once 'view/edit.php';
                         }
+
+                    case '/update':
+
+	                    if (isset($_POST['submit'])) {
+	                    	$data = $_POST;
+
+                        //$this->formatArray($data);
+
+	                        $result = $this->updateData($data,'crud_ajax');
+
+	                        echo "<pre>";
+	                        print_r($result);
+	                        if($result['status']) {
+	                           header("Location: http://localhost/Lecture/mvc/");
+	                        }
+	                    }
+                		
+                    	break;
 //					default:
 //						include_once 'view/404.php';
 //						break;
